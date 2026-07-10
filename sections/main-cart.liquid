@@ -1,0 +1,103 @@
+<div class="page-width cart-page">
+  <h1 class="text-center">Your cart</h1>
+
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      <div class="cart-page__grid">
+        <div>
+          {%- for item in cart.items -%}
+            <div class="cart-line">
+              <a href="{{ item.url }}" class="cart-line__media">
+                {%- if item.image -%}
+                  <img src="{{ item.image | image_url: width: 240 }}" alt="{{ item.image.alt | escape }}" loading="lazy" width="120" height="120">
+                {%- endif -%}
+              </a>
+              <div>
+                <a href="{{ item.url }}" class="cart-line__title">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="cart-line__variant">{{ item.variant.title }}</p>
+                {%- endunless -%}
+                {%- for discount in item.line_level_discount_allocations -%}
+                  <p class="cart-line__variant">{{ discount.discount_application.title }}</p>
+                {%- endfor -%}
+                <div class="cart-line__controls">
+                  <div class="quantity">
+                    <button type="button" data-qty-change="-1" aria-label="Decrease quantity">{% render 'icon', name: 'minus' %}</button>
+                    <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity">
+                    <button type="button" data-qty-change="1" aria-label="Increase quantity">{% render 'icon', name: 'plus' %}</button>
+                  </div>
+                  <a href="{{ item.url_to_remove }}" class="cart-line__remove" aria-label="Remove {{ item.product.title | escape }}">
+                    {% render 'icon', name: 'trash' %}
+                  </a>
+                </div>
+              </div>
+              <div class="cart-line__price">{{ item.final_line_price | money }}</div>
+            </div>
+          {%- endfor -%}
+
+          {%- if settings.cart_note_enable -%}
+            <div class="cart-note field" style="margin-top: 2.4rem;">
+              <label for="CartNote">Order note</label>
+              <textarea id="CartNote" name="note" rows="3" placeholder="Gift note, delivery instructions…">{{ cart.note }}</textarea>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="cart-summary">
+          {%- assign threshold = settings.free_shipping_threshold | times: 100 -%}
+          {%- if settings.free_shipping_threshold > 0 -%}
+            {%- if cart.total_price >= threshold -%}
+              <div class="shipping-bar shipping-bar--done">
+                <p class="shipping-bar__label">🎉 You've unlocked free shipping!</p>
+                <div class="shipping-bar__track"><div class="shipping-bar__fill" style="width: 100%;"></div></div>
+              </div>
+            {%- else -%}
+              {%- assign remaining = threshold | minus: cart.total_price -%}
+              {%- assign progress = cart.total_price | times: 100 | divided_by: threshold -%}
+              <div class="shipping-bar">
+                <p class="shipping-bar__label">You're {{ remaining | money }} away from free shipping</p>
+                <div class="shipping-bar__track"><div class="shipping-bar__fill" style="width: {{ progress }}%;"></div></div>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- if cart.cart_level_discount_applications.size > 0 -%}
+            {%- for discount in cart.cart_level_discount_applications -%}
+              <div class="cart-summary__row">
+                <span>{{ discount.title }}</span>
+                <span>-{{ discount.total_allocated_amount | money }}</span>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+
+          <div class="cart-summary__row cart-summary__row--total">
+            <span>Subtotal</span>
+            <span>{{ cart.total_price | money }}</span>
+          </div>
+          <p class="cart-summary__note">Shipping, taxes, and discounts calculated at checkout.</p>
+
+          <button type="submit" name="update" class="btn btn--outline btn--full" style="margin-bottom: 1.2rem;">Update cart</button>
+          <button type="submit" name="checkout" class="btn btn--primary btn--full">Checkout</button>
+
+          {%- if settings.cart_giveback_text != blank -%}
+            <p class="cart-drawer__giveback">{{ settings.cart_giveback_text }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    </form>
+  {%- else -%}
+    <div class="cart-empty">
+      {% render 'icon', name: 'paw' %}
+      <h2>Your cart is empty</h2>
+      <p>Your pup deserves something special.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">Start shopping</a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Cart page",
+  "settings": []
+}
+{% endschema %}

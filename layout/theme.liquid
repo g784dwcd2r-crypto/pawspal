@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_background }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+  {%- if settings.favicon != blank -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {%- endif -%}
+
+  <title>
+    {{ page_title }}
+    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% render 'meta-tags' %}
+
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+  {{ settings.type_heading_font | font_face: font_display: 'swap' }}
+  {%- assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold' -%}
+  {%- if body_font_bold -%}{{ body_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
+
+  {% style %}
+    :root {
+      --color-bg: {{ settings.color_background }};
+      --color-surface: {{ settings.color_surface }};
+      --color-text: {{ settings.color_text }};
+      --color-text-muted: {{ settings.color_text | color_modify: 'alpha', 0.62 }};
+      --color-primary: {{ settings.color_primary }};
+      --color-primary-hover: {{ settings.color_primary | color_darken: 8 }};
+      --color-accent: {{ settings.color_accent }};
+      --color-accent-hover: {{ settings.color_accent | color_darken: 8 }};
+      --color-accent-soft: {{ settings.color_accent_soft }};
+      --color-highlight: {{ settings.color_highlight }};
+      --color-sale: {{ settings.color_sale }};
+      --color-border: {{ settings.color_text | color_modify: 'alpha', 0.12 }};
+      --font-heading: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+      --font-heading-style: {{ settings.type_heading_font.style }};
+      --font-heading-weight: {{ settings.type_heading_font.weight }};
+      --font-body: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      --font-body-style: {{ settings.type_body_font.style }};
+      --font-body-weight: {{ settings.type_body_font.weight }};
+      --page-width: {{ settings.page_width }}px;
+      --radius: {{ settings.corner_radius }}px;
+      --radius-small: {{ settings.corner_radius | divided_by: 2 }}px;
+    }
+  {% endstyle %}
+
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+  <script>
+    window.themeSettings = {
+      cartType: {{ settings.cart_type | json }},
+      moneyFormat: {{ shop.money_format | json }}
+    };
+    window.routes = {
+      root: {{ routes.root_url | json }},
+      cartAdd: {{ routes.cart_add_url | json }},
+      cartChange: {{ routes.cart_change_url | json }},
+      cartUpdate: {{ routes.cart_update_url | json }},
+      cart: {{ routes.cart_url | json }}
+    };
+  </script>
+
+  {{ content_for_header }}
+</head>
+
+<body class="template-{{ request.page_type | handle }}" data-cart-type="{{ settings.cart_type }}">
+  <a class="skip-to-content visually-hidden" href="#MainContent">Skip to content</a>
+
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+  {% section 'cart-drawer' %}
+
+  <div class="page-overlay" id="PageOverlay" hidden></div>
+</body>
+</html>

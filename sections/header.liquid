@@ -1,0 +1,149 @@
+<header class="site-header{% if section.settings.enable_sticky %} site-header--sticky{% endif %}">
+  <div class="page-width site-header__inner">
+
+    <button class="header-icon mobile-nav-toggle" data-open-mobile-nav aria-label="Open menu">
+      {% render 'icon', name: 'menu' %}
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        {%- for link in section.settings.menu.links -%}
+          <li class="site-nav__item{% if link.links.size > 0 %} site-nav__item--has-children{% endif %}">
+            <a href="{{ link.url }}" class="site-nav__link"{% if link.current %} aria-current="page"{% endif %}>
+              {{ link.title }}
+              {%- if link.links.size > 0 %}{% render 'icon', name: 'chevron-down' %}{% endif -%}
+            </a>
+            {%- if link.links.size > 0 -%}
+              <div class="site-nav__dropdown">
+                {%- for child in link.links -%}
+                  <a href="{{ child.url }}">{{ child.title }}</a>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 300 }}"
+          srcset="{{ section.settings.logo | image_url: width: 300 }} 1x, {{ section.settings.logo | image_url: width: 600 }} 2x"
+          alt="{{ shop.name | escape }}"
+          width="{{ section.settings.logo_width }}"
+          style="width: {{ section.settings.logo_width }}px;">
+      {%- else -%}
+        <span class="site-header__logo-text">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <div class="site-header__icons">
+      {%- if section.settings.show_search -%}
+        <button class="header-icon" data-toggle-search aria-label="Search">
+          {% render 'icon', name: 'search' %}
+        </button>
+      {%- endif -%}
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="header-icon" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="Account">
+          {% render 'icon', name: 'account' %}
+        </a>
+      {%- endif -%}
+      <a class="header-icon" href="{{ routes.cart_url }}" data-open-cart aria-label="Cart">
+        {% render 'icon', name: 'bag' %}
+        <span class="cart-count" data-cart-count data-count="{{ cart.item_count }}">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  {%- if section.settings.show_search -%}
+    <div class="header-search" id="HeaderSearch" hidden>
+      <div class="page-width">
+        <form action="{{ routes.search_url }}" method="get" role="search">
+          <input type="hidden" name="type" value="product">
+          <input type="search" name="q" placeholder="Search collars, leashes, toys…" aria-label="Search">
+          <button type="submit" class="btn btn--primary">Search</button>
+        </form>
+      </div>
+    </div>
+  {%- endif -%}
+</header>
+
+<div class="mobile-drawer" id="MobileDrawer" aria-label="Menu">
+  <div class="mobile-drawer__head">
+    <span class="site-header__logo-text" style="font-size:2rem;">{{ shop.name }}</span>
+    <button class="header-icon" data-close-panel aria-label="Close menu">
+      {% render 'icon', name: 'close' %}
+    </button>
+  </div>
+  <div class="mobile-drawer__body">
+    <ul>
+      {%- for link in section.settings.menu.links -%}
+        <li>
+          {%- if link.links.size > 0 -%}
+            <details>
+              <summary>{{ link.title }} {% render 'icon', name: 'chevron-down' %}</summary>
+              <ul>
+                <li><a href="{{ link.url }}">Shop all {{ link.title | downcase }}</a></li>
+                {%- for child in link.links -%}
+                  <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            </details>
+          {%- else -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  <div class="mobile-drawer__foot">
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">
+        {% render 'icon', name: 'account' %} Account
+      </a>
+    {%- endif -%}
+    <a href="{{ routes.search_url }}">{% render 'icon', name: 'search' %} Search</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 60,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo width",
+      "default": 150
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

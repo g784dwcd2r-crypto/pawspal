@@ -1,0 +1,36 @@
+<div class="page-width">
+  <div class="collection-banner">
+    <h1>{{ blog.title }}</h1>
+  </div>
+
+  {%- paginate blog.articles by 9 -%}
+    <div class="blog-grid" style="padding-bottom: 3rem;">
+      {%- for article in blog.articles -%}
+        <article class="article-card">
+          <div class="article-card__media">
+            {%- if article.image -%}
+              <img
+                src="{{ article.image | image_url: width: 800 }}"
+                alt="{{ article.image.alt | default: article.title | escape }}"
+                loading="lazy"
+                width="800" height="600">
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <p class="article-card__meta">{{ article.published_at | date: '%B %d, %Y' }}</p>
+          <h2 class="article-card__title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+          <p class="article-card__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 140 }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": []
+}
+{% endschema %}

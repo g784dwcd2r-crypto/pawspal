@@ -1,0 +1,79 @@
+<section class="section{% if section.settings.background == 'band' %} section--band{% endif %}">
+  <div class="page-width">
+    <div class="values-bar" style="--cols: {{ section.blocks.size | at_most: 4 }};">
+      {%- for block in section.blocks -%}
+        <div class="values-bar__item" {{ block.shopify_attributes }}>
+          {% render 'icon', name: block.settings.icon %}
+          <h4>{{ block.settings.heading }}</h4>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Values bar",
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Background",
+      "options": [
+        { "value": "default", "label": "Page background" },
+        { "value": "band", "label": "Blush band" }
+      ],
+      "default": "default"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "paw", "label": "Paw" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "wash", "label": "Water drop" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "bone", "label": "Bone" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "paw"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Every order gives back"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "A meal is donated to a shelter dog with every purchase."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values bar",
+      "blocks": [
+        { "type": "value", "settings": { "icon": "heart", "heading": "Every order gives back", "text": "A meal is donated to a shelter dog with every purchase." } },
+        { "type": "value", "settings": { "icon": "wash", "heading": "Machine washable", "text": "Durable fabrics made for muddy adventures." } },
+        { "type": "value", "settings": { "icon": "truck", "heading": "Fast, free shipping", "text": "Free U.S. shipping on all orders over $50." } },
+        { "type": "value", "settings": { "icon": "paw", "heading": "Dog approved", "text": "Tested daily by our very good office dogs." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

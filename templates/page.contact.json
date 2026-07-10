@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Get in touch",
+        "text": "Questions about sizing, orders, or wholesale? We (and our office dogs) are happy to help."
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q-sizing": { "type": "question", "settings": { "question": "How do I find my dog's size?", "answer": "<p>Measure around your dog's neck where the collar naturally sits, then add two fingers of room. Each product page includes a detailed size chart.</p>" } },
+        "q-returns": { "type": "question", "settings": { "question": "What is your return policy?", "answer": "<p>We accept returns and exchanges within 30 days of delivery on unused items. Reach out and we'll make it right.</p>" } },
+        "q-giveback": { "type": "question", "settings": { "question": "How does the donation program work?", "answer": "<p>For every order placed, we donate a meal to a dog waiting for their forever home at one of our partner shelters.</p>" } }
+      },
+      "block_order": ["q-sizing", "q-returns", "q-giveback"],
+      "settings": {
+        "heading": "Frequently asked questions"
+      }
+    }
+  },
+  "order": ["main", "faq"]
+}

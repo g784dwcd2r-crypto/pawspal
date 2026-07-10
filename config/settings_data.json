@@ -1,0 +1,24 @@
+{
+  "current": {
+    "color_background": "#FFF9F4",
+    "color_surface": "#FFFFFF",
+    "color_text": "#22304A",
+    "color_primary": "#22304A",
+    "color_accent": "#EE9B8F",
+    "color_accent_soft": "#FBE7E1",
+    "color_highlight": "#9DB89C",
+    "color_sale": "#D96C57",
+    "type_heading_font": "playfair_display_n4",
+    "type_body_font": "assistant_n4",
+    "page_width": 1240,
+    "corner_radius": 16,
+    "show_vendor": false,
+    "show_secondary_image": true,
+    "show_quick_add": true,
+    "new_badge_days": 30,
+    "cart_type": "drawer",
+    "free_shipping_threshold": 50,
+    "cart_note_enable": true,
+    "cart_giveback_text": "🐾 This order donates a meal to a shelter dog."
+  }
+}

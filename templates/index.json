@@ -1,0 +1,140 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "height": "large",
+        "alignment": "left",
+        "eyebrow": "New collection",
+        "heading": "Spoil your best friend",
+        "text": "Premium collars, leashes & toys designed for good dogs — and every order feeds a shelter pup.",
+        "button_label": "Shop bestsellers",
+        "button_label_2": "Shop new arrivals",
+        "overlay_opacity": 25
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "text": "Sit. Stay. Shop.",
+        "color_scheme": "primary"
+      }
+    },
+    "categories": {
+      "type": "category-grid",
+      "blocks": {
+        "cat-collars": { "type": "category", "settings": { "title": "Collars" } },
+        "cat-leashes": { "type": "category", "settings": { "title": "Leashes" } },
+        "cat-bandanas": { "type": "category", "settings": { "title": "Bandanas" } },
+        "cat-toys": { "type": "category", "settings": { "title": "Toys" } }
+      },
+      "block_order": ["cat-collars", "cat-leashes", "cat-bandanas", "cat-toys"],
+      "settings": {
+        "eyebrow": "For every good dog",
+        "heading": "Shop by category",
+        "columns": 4
+      }
+    },
+    "bestsellers": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Customer favorites",
+        "heading": "Bestsellers",
+        "subheading": "The goods your fellow dog people can't stop buying.",
+        "products_to_show": 8,
+        "columns": 4,
+        "show_view_all": true,
+        "background": "default"
+      }
+    },
+    "values": {
+      "type": "values-bar",
+      "blocks": {
+        "val-giveback": { "type": "value", "settings": { "icon": "heart", "heading": "Every order gives back", "text": "A meal is donated to a shelter dog with every purchase." } },
+        "val-washable": { "type": "value", "settings": { "icon": "wash", "heading": "Machine washable", "text": "Durable fabrics made for muddy adventures." } },
+        "val-shipping": { "type": "value", "settings": { "icon": "truck", "heading": "Fast, free shipping", "text": "Free U.S. shipping on all orders over $50." } },
+        "val-approved": { "type": "value", "settings": { "icon": "paw", "heading": "Dog approved", "text": "Tested daily by our very good office dogs." } }
+      },
+      "block_order": ["val-giveback", "val-washable", "val-shipping", "val-approved"],
+      "settings": {
+        "background": "band"
+      }
+    },
+    "giveback": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "image_first",
+        "eyebrow": "Doing good",
+        "heading": "Every order feeds a shelter dog",
+        "text": "<p>We believe every dog deserves a full bowl and a loving home. That's why we donate a meal to a shelter dog for every single order — over 10,000 meals and counting. Shop for your pup, and help another one too.</p>",
+        "button_label": "Learn more",
+        "background": "default"
+      }
+    },
+    "press": {
+      "type": "press-logos",
+      "blocks": {
+        "press-1": { "type": "logo", "settings": { "name": "Vogue" } },
+        "press-2": { "type": "logo", "settings": { "name": "Oprah Daily" } },
+        "press-3": { "type": "logo", "settings": { "name": "BuzzFeed" } },
+        "press-4": { "type": "logo", "settings": { "name": "The Dodo" } },
+        "press-5": { "type": "logo", "settings": { "name": "Forbes" } }
+      },
+      "block_order": ["press-1", "press-2", "press-3", "press-4", "press-5"],
+      "settings": {
+        "heading": "As seen in"
+      }
+    },
+    "reviews": {
+      "type": "testimonials",
+      "blocks": {
+        "review-1": { "type": "testimonial", "settings": { "stars": 5, "quote": "The quality is incredible and my pup looks adorable. We get compliments on every walk!", "author": "Sarah M.", "detail": "with Biscuit, Golden Retriever" } },
+        "review-2": { "type": "testimonial", "settings": { "stars": 5, "quote": "Finally, a collar that survives our lake days and still looks brand new. Worth every penny.", "author": "Jordan T.", "detail": "with Luna, Border Collie" } },
+        "review-3": { "type": "testimonial", "settings": { "stars": 5, "quote": "Knowing every order feeds a shelter dog makes shopping here feel extra good.", "author": "Priya K.", "detail": "with Mochi, Corgi" } }
+      },
+      "block_order": ["review-1", "review-2", "review-3"],
+      "settings": {
+        "eyebrow": "Wag-worthy reviews",
+        "heading": "Loved by 10,000+ good dogs",
+        "background": "band"
+      }
+    },
+    "instagram": {
+      "type": "instagram-grid",
+      "blocks": {
+        "insta-1": { "type": "image", "settings": {} },
+        "insta-2": { "type": "image", "settings": {} },
+        "insta-3": { "type": "image", "settings": {} },
+        "insta-4": { "type": "image", "settings": {} },
+        "insta-5": { "type": "image", "settings": {} },
+        "insta-6": { "type": "image", "settings": {} }
+      },
+      "block_order": ["insta-1", "insta-2", "insta-3", "insta-4", "insta-5", "insta-6"],
+      "settings": {
+        "heading": "Pups of the pack",
+        "handle": "@yourstore on Instagram"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Join the pack",
+        "heading": "Get 10% off your first order",
+        "text": "New drops, exclusive offers, and very good dog photos. No spam — we promise, paw to heart.",
+        "button_label": "Subscribe"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "categories",
+    "bestsellers",
+    "values",
+    "giveback",
+    "press",
+    "reviews",
+    "instagram",
+    "newsletter"
+  ]
+}

@@ -1,0 +1,59 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-header">
+      {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+    </div>
+    <div class="faq">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }} {% render 'icon', name: 'chevron-down' %}</summary>
+          <div class="faq__answer">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently asked questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I find my dog's size?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Measure around your dog's neck where the collar naturally sits, then add two fingers of room. Each product page includes a detailed size chart.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "question", "settings": { "question": "How do I find my dog's size?", "answer": "<p>Measure around your dog's neck where the collar naturally sits, then add two fingers of room. Each product page includes a detailed size chart.</p>" } },
+        { "type": "question", "settings": { "question": "What is your return policy?", "answer": "<p>We accept returns and exchanges within 30 days of delivery on unused items. Reach out and we'll make it right.</p>" } },
+        { "type": "question", "settings": { "question": "How does the donation program work?", "answer": "<p>For every order placed, we donate a meal to a dog waiting for their forever home at one of our partner shelters.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

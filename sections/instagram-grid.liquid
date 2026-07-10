@@ -1,0 +1,93 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section-header">
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.handle != blank -%}
+        <p>
+          <a href="{{ section.settings.link | default: settings.social_instagram_link }}" target="_blank" rel="noopener">
+            {{ section.settings.handle }}
+          </a>
+        </p>
+      {%- endif -%}
+    </div>
+
+    <div class="insta-grid">
+      {%- for block in section.blocks -%}
+        <a
+          href="{{ block.settings.link | default: settings.social_instagram_link | default: '#' }}"
+          class="insta-grid__item"
+          {% if block.settings.link != blank or settings.social_instagram_link != blank %}target="_blank" rel="noopener"{% endif %}
+          {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img
+              src="{{ block.settings.image | image_url: width: 500 }}"
+              alt="{{ block.settings.image.alt | default: 'Instagram photo' | escape }}"
+              loading="lazy"
+              width="500" height="500">
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+          <span class="insta-icon">{% render 'icon', name: 'instagram' %}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Instagram grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pups of the pack"
+    },
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Handle",
+      "default": "@yourstore on Instagram"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link",
+      "info": "Defaults to the Instagram URL from theme settings."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram grid",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

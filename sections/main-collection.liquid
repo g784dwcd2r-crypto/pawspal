@@ -1,0 +1,111 @@
+<div class="page-width">
+  <div class="collection-banner">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="collection-banner__description rte">{{ collection.description }}</div>
+    {%- endif -%}
+  </div>
+
+  {%- paginate collection.products by section.settings.products_per_page -%}
+
+    {%- if section.settings.enable_filtering and collection.filters.size > 0 -%}
+      <div class="collection-filters">
+        {%- for filter in collection.filters -%}
+          {%- if filter.type == 'list' or filter.type == 'boolean' -%}
+            <details>
+              <summary>{{ filter.label }} {% render 'icon', name: 'chevron-down' %}</summary>
+              <div class="collection-filters__panel">
+                {%- for value in filter.values -%}
+                  {%- if value.active -%}
+                    <a href="{{ value.url_to_remove }}" class="is-active">✓ {{ value.label }} ({{ value.count }})</a>
+                  {%- elsif value.count > 0 -%}
+                    <a href="{{ value.url_to_add }}">{{ value.label }} ({{ value.count }})</a>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- for filter in collection.filters -%}
+          {%- for value in filter.active_values -%}
+            <a href="{{ value.url_to_remove }}" class="filter-chip-remove">
+              {{ value.label }} {% render 'icon', name: 'close' %}
+            </a>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="collection-toolbar">
+      <span class="collection-toolbar__count">{{ collection.products_count }} products</span>
+      {%- if section.settings.enable_sorting -%}
+        {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+        <label class="visually-hidden" for="SortBy">Sort by</label>
+        <select id="SortBy" data-sort-by>
+          {%- assign sort_options = 'manual,Featured|best-selling,Best selling|title-ascending,A–Z|title-descending,Z–A|price-ascending,Price low to high|price-descending,Price high to low|created-descending,Newest' | split: '|' -%}
+          {%- for option in sort_options -%}
+            {%- assign pair = option | split: ',' -%}
+            <option value="{{ pair[0] }}" {% if sort_by == pair[0] %}selected{% endif %}>{{ pair[1] }}</option>
+          {%- endfor -%}
+        </select>
+      {%- endif -%}
+    </div>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="product-grid" style="--cols: {{ section.settings.columns }};">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+      {% render 'pagination', paginate: paginate %}
+    {%- else -%}
+      <div class="collection-empty">
+        {% render 'icon', name: 'paw' %}
+        <h2>No products found</h2>
+        <p>Try removing a filter, or come back soon — new goodies are always on the way.</p>
+        <a href="{{ collection.url }}" class="btn btn--primary">Clear filters</a>
+      </div>
+    {%- endif -%}
+
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "label": "Products per page",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "label": "Enable filtering",
+      "info": "Configure filters in the Search & Discovery app.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "label": "Enable sorting",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

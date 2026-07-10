@@ -1,0 +1,30 @@
+{%- comment -%}
+  Renders a product or variant price.
+  Usage: {% render 'price', product: product %}
+         {% render 'price', variant: product.selected_or_first_available_variant %}
+{%- endcomment -%}
+{%- if variant -%}
+  <span class="price">
+    {%- if variant.compare_at_price > variant.price -%}
+      <span class="price__sale">{{ variant.price | money }}</span>
+      <s class="price__compare">{{ variant.compare_at_price | money }}</s>
+    {%- else -%}
+      <span>{{ variant.price | money }}</span>
+    {%- endif -%}
+  </span>
+{%- elsif product -%}
+  <span class="price">
+    {%- if product.compare_at_price > product.price -%}
+      <span class="price__sale">
+        {%- if product.price_varies %}From {% endif -%}
+        {{ product.price | money }}
+      </span>
+      <s class="price__compare">{{ product.compare_at_price | money }}</s>
+    {%- else -%}
+      <span>
+        {%- if product.price_varies %}From {% endif -%}
+        {{ product.price | money }}
+      </span>
+    {%- endif -%}
+  </span>
+{%- endif -%}

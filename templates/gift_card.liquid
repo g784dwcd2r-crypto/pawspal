@@ -1,0 +1,80 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>{{ shop.name }} — Gift card</title>
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+  {{ settings.type_heading_font | font_face: font_display: 'swap' }}
+  <style>
+    body {
+      margin: 0;
+      background: {{ settings.color_background }};
+      color: {{ settings.color_text }};
+      font-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .card {
+      background: {{ settings.color_surface }};
+      border-radius: {{ settings.corner_radius }}px;
+      padding: 3rem 2.5rem;
+      max-width: 26rem;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(34,48,74,.12);
+    }
+    h1 {
+      font-family: {{ settings.type_heading_font.family }}, {{ settings.type_heading_font.fallback_families }};
+      font-size: 1.8rem;
+      margin: 0 0 .5rem;
+    }
+    .amount { font-size: 2.4rem; font-weight: 700; margin: 1rem 0; }
+    .code {
+      background: {{ settings.color_accent_soft }};
+      border-radius: 999px;
+      padding: .9rem 1.4rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      margin: 1rem 0 1.5rem;
+      display: inline-block;
+    }
+    .btn {
+      display: inline-block;
+      background: {{ settings.color_primary }};
+      color: #fff;
+      text-decoration: none;
+      padding: .8rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .expired { color: {{ settings.color_sale }}; font-weight: 700; }
+    p.small { font-size: .85rem; opacity: .7; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>{{ shop.name }}</h1>
+    <p>Here's your gift card! 🎁🐾</p>
+    <p class="amount">{{ gift_card.initial_value | money }}</p>
+    {%- if gift_card.enabled == false or gift_card.expired -%}
+      <p class="expired">This gift card has expired.</p>
+    {%- else -%}
+      {%- if gift_card.balance != gift_card.initial_value -%}
+        <p class="small">Remaining balance: {{ gift_card.balance | money }}</p>
+      {%- endif -%}
+      <p class="code">{{ gift_card.code | format_code }}</p>
+      <p><a class="btn" href="{{ shop.url }}">Start shopping</a></p>
+    {%- endif -%}
+    <p class="small">Use this code at checkout to redeem your gift card.</p>
+  </div>
+</body>
+</html>

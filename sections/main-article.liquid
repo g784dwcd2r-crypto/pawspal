@@ -1,0 +1,67 @@
+<article class="page-width article-page">
+  {%- if article.image -%}
+    <div class="article-page__hero">
+      <img
+        src="{{ article.image | image_url: width: 1400 }}"
+        alt="{{ article.image.alt | default: article.title | escape }}"
+        width="1400" height="800">
+    </div>
+  {%- endif -%}
+
+  <h1>{{ article.title }}</h1>
+  <p class="article-page__meta">
+    {{ article.published_at | date: '%B %d, %Y' }}
+    {%- if article.author != blank %} · {{ article.author }}{% endif -%}
+  </p>
+
+  <div class="rte">{{ article.content }}</div>
+
+  <p style="margin-top: 4rem;">
+    <a href="{{ blog.url }}" class="link-arrow">{% render 'icon', name: 'chevron-left' %} Back to {{ blog.title }}</a>
+  </p>
+
+  {%- if blog.comments_enabled? -%}
+    <div style="margin-top: 5rem;">
+      <h3>Comments ({{ article.comments_count }})</h3>
+      {%- paginate article.comments by 20 -%}
+        {%- for comment in article.comments -%}
+          <div class="address-card">
+            <p style="margin-bottom: .6rem;">{{ comment.content }}</p>
+            <p class="article-page__meta" style="margin: 0;">{{ comment.author }} · {{ comment.created_at | date: '%B %d, %Y' }}</p>
+          </div>
+        {%- endfor -%}
+        {% render 'pagination', paginate: paginate %}
+      {%- endpaginate -%}
+
+      {%- form 'new_comment', article -%}
+        <h4>Leave a comment</h4>
+        {%- if form.posted_successfully? -%}
+          <p class="form-message form-message--success">Thanks! Your comment was posted{% if blog.moderated? %} and is awaiting moderation{% endif %}.</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="form-message form-message--error">Please fill in a valid name, email, and comment.</p>
+        {%- endif -%}
+        <div class="field">
+          <label for="CommentAuthor">Name</label>
+          <input type="text" id="CommentAuthor" name="comment[author]" value="{{ form.author }}" required>
+        </div>
+        <div class="field">
+          <label for="CommentEmail">Email</label>
+          <input type="email" id="CommentEmail" name="comment[email]" value="{{ form.email }}" required>
+        </div>
+        <div class="field">
+          <label for="CommentBody">Comment</label>
+          <textarea id="CommentBody" name="comment[body]" rows="4" required>{{ form.body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Post comment</button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</article>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": []
+}
+{% endschema %}

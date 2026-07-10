@@ -1,0 +1,30 @@
+<div class="page-width account-page">
+  <h1>Activate your account</h1>
+
+  <div class="account-card">
+    {%- form 'activate_customer_password' -%}
+      {%- if form.errors -%}
+        <p class="form-message form-message--error">Please check your password and try again.</p>
+      {%- endif -%}
+      <div class="field">
+        <label for="ActivatePassword">Password</label>
+        <input type="password" id="ActivatePassword" name="customer[password]" autocomplete="new-password" required>
+      </div>
+      <div class="field">
+        <label for="ActivatePasswordConfirm">Confirm password</label>
+        <input type="password" id="ActivatePasswordConfirm" name="customer[password_confirmation]" autocomplete="new-password" required>
+      </div>
+      <div style="display: flex; gap: 1.2rem;">
+        <button type="submit" class="btn btn--primary">Activate account</button>
+        <button type="submit" name="decline" class="btn btn--outline">Decline invitation</button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Activate account",
+  "settings": []
+}
+{% endschema %}

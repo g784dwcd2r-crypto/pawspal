@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "acc-sizing": { "type": "accordion", "settings": { "title": "Sizing guide", "content": "<p>Measure around your dog's neck where the collar naturally sits, then add two fingers of room for comfort.</p>" } },
+        "acc-care": { "type": "accordion", "settings": { "title": "Care instructions", "content": "<p>Machine wash cold on gentle, lay flat to dry. Built for muddy adventures.</p>" } },
+        "acc-shipping": { "type": "accordion", "settings": { "title": "Shipping & returns", "content": "<p>Free U.S. shipping on orders over $50. Easy 30-day returns on unused items.</p>" } }
+      },
+      "block_order": ["acc-sizing", "acc-care", "acc-shipping"],
+      "settings": {
+        "show_vendor": false,
+        "show_dynamic_checkout": true,
+        "giveback_text": "This purchase donates a meal to a shelter dog."
+      }
+    },
+    "recommendations": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Keep sniffing",
+        "heading": "You may also like",
+        "subheading": "",
+        "products_to_show": 4,
+        "columns": 4,
+        "show_view_all": false,
+        "background": "band"
+      }
+    }
+  },
+  "order": ["main", "recommendations"]
+}

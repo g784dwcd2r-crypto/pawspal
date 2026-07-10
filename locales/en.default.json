@@ -1,0 +1,19 @@
+{
+  "general": {
+    "meta": {
+      "page": "Page {{ page }}",
+      "tags": "Tagged \"{{ tags }}\""
+    },
+    "404": {
+      "title": "Page not found"
+    },
+    "search": {
+      "title": "Search"
+    }
+  },
+  "shopify": {
+    "links": {
+      "powered_by_shopify": "Powered by Shopify"
+    }
+  }
+}

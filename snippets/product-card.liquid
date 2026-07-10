@@ -1,0 +1,87 @@
+{%- comment -%}
+  Renders a product card.
+  Usage: {% render 'product-card', product: product %}
+  Params:
+    product        {Object} product drop (blank for placeholder)
+    placeholder_index {Number} used when product is blank
+{%- endcomment -%}
+
+{%- if product != blank -%}
+  <div class="product-card">
+    <div class="product-card__media">
+      <div class="product-card__badges">
+        {%- if product.available == false -%}
+          <span class="badge badge--soldout">Sold out</span>
+        {%- elsif product.compare_at_price > product.price -%}
+          <span class="badge badge--sale">Sale</span>
+        {%- endif -%}
+        {%- if settings.new_badge_days > 0 -%}
+          {%- assign now_ts = 'now' | date: '%s' | plus: 0 -%}
+          {%- assign created_ts = product.created_at | date: '%s' | plus: 0 -%}
+          {%- assign window_seconds = settings.new_badge_days | times: 86400 -%}
+          {%- assign age = now_ts | minus: created_ts -%}
+          {%- if age < window_seconds and product.available -%}
+            <span class="badge badge--new">New</span>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+
+      {%- if product.featured_image -%}
+        <img
+          class="primary"
+          src="{{ product.featured_image | image_url: width: 600 }}"
+          srcset="{{ product.featured_image | image_url: width: 400 }} 400w, {{ product.featured_image | image_url: width: 600 }} 600w, {{ product.featured_image | image_url: width: 900 }} 900w"
+          sizes="(min-width: 990px) 300px, 50vw"
+          alt="{{ product.featured_image.alt | default: product.title | escape }}"
+          loading="lazy"
+          width="600" height="600">
+        {%- if settings.show_secondary_image and product.images[1] -%}
+          <img
+            class="secondary"
+            src="{{ product.images[1] | image_url: width: 600 }}"
+            alt="{{ product.images[1].alt | default: product.title | escape }}"
+            loading="lazy"
+            width="600" height="600">
+        {%- endif -%}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+
+      {%- if settings.show_quick_add and product.available -%}
+        <div class="product-card__quick-add">
+          {%- if product.variants.size == 1 -%}
+            {%- form 'product', product, data-ajax-cart: '' -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              <button type="submit" class="btn btn--light btn--small">Add to cart</button>
+            {%- endform -%}
+          {%- else -%}
+            <a class="btn btn--light btn--small" href="{{ product.url }}">Choose options</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product-card__info">
+      {%- if settings.show_vendor and product.vendor != blank -%}
+        <p class="product-card__vendor">{{ product.vendor }}</p>
+      {%- endif -%}
+      <h3 class="product-card__title">
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+      <div class="product-card__price">
+        {% render 'price', product: product %}
+      </div>
+    </div>
+  </div>
+{%- else -%}
+  {%- assign idx = placeholder_index | default: 1 -%}
+  <div class="product-card">
+    <div class="product-card__media">
+      {{ 'product-' | append: idx | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+    <div class="product-card__info">
+      <h3 class="product-card__title"><a href="#">Example product</a></h3>
+      <div class="product-card__price"><span class="price"><span>$29</span></span></div>
+    </div>
+  </div>
+{%- endif -%}

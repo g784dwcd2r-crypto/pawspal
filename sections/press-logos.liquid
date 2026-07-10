@@ -1,0 +1,64 @@
+<section class="section section--tight">
+  <div class="page-width press-logos">
+    {%- if section.settings.heading != blank -%}
+      <p class="press-logos__title">{{ section.settings.heading }}</p>
+    {%- endif -%}
+    <div class="press-logos__row">
+      {%- for block in section.blocks -%}
+        <span class="press-logos__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.name | escape }}" loading="lazy" height="34">
+          {%- else -%}
+            {{ block.settings.name }}
+          {%- endif -%}
+        </span>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Press logos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "As seen in"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Publication name",
+          "default": "Publication"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo image",
+          "info": "Optional — replaces the text."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press logos",
+      "blocks": [
+        { "type": "logo", "settings": { "name": "Vogue" } },
+        { "type": "logo", "settings": { "name": "Oprah Daily" } },
+        { "type": "logo", "settings": { "name": "BuzzFeed" } },
+        { "type": "logo", "settings": { "name": "The Dodo" } },
+        { "type": "logo", "settings": { "name": "Forbes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

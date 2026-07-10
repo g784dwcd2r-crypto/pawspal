@@ -1,0 +1,57 @@
+<div class="page-width account-page">
+  <h1>Your addresses</h1>
+  <p class="text-center" style="margin-bottom: 3.6rem;">
+    <a href="{{ routes.account_url }}">Back to account</a>
+  </p>
+
+  <div class="account-card" style="margin-bottom: 2.4rem;">
+    <h3>Add a new address</h3>
+    {%- form 'customer_address', customer.new_address -%}
+      <div class="field"><label for="AddressFirstName">First name</label><input type="text" id="AddressFirstName" name="address[first_name]" autocomplete="given-name"></div>
+      <div class="field"><label for="AddressLastName">Last name</label><input type="text" id="AddressLastName" name="address[last_name]" autocomplete="family-name"></div>
+      <div class="field"><label for="AddressAddress1">Address</label><input type="text" id="AddressAddress1" name="address[address1]" autocomplete="address-line1"></div>
+      <div class="field"><label for="AddressAddress2">Apartment, suite, etc.</label><input type="text" id="AddressAddress2" name="address[address2]" autocomplete="address-line2"></div>
+      <div class="field"><label for="AddressCity">City</label><input type="text" id="AddressCity" name="address[city]" autocomplete="address-level2"></div>
+      <div class="field">
+        <label for="AddressCountry">Country/region</label>
+        <select id="AddressCountry" name="address[country]" autocomplete="country">
+          {{ all_country_option_tags }}
+        </select>
+      </div>
+      <div class="field"><label for="AddressProvince">State/province</label><input type="text" id="AddressProvince" name="address[province]" autocomplete="address-level1"></div>
+      <div class="field"><label for="AddressZip">Postal/ZIP code</label><input type="text" id="AddressZip" name="address[zip]" autocomplete="postal-code"></div>
+      <div class="field"><label for="AddressPhone">Phone</label><input type="tel" id="AddressPhone" name="address[phone]" autocomplete="tel"></div>
+      <div class="field">
+        <label style="display: inline-flex; align-items: center; gap: .8rem; font-weight: 500;">
+          <input type="checkbox" name="address[default]" style="width: auto;"> Set as default address
+        </label>
+      </div>
+      <button type="submit" class="btn btn--primary">Add address</button>
+    {%- endform -%}
+  </div>
+
+  {%- paginate customer.addresses by 10 -%}
+    {%- for address in customer.addresses -%}
+      <div class="address-card">
+        {%- if address == customer.default_address -%}
+          <p><span class="badge badge--new">Default</span></p>
+        {%- endif -%}
+        <p>{{ address | format_address }}</p>
+        <div style="display: flex; gap: 1.2rem;">
+          <form method="post" action="/account/addresses/{{ address.id }}" style="display:inline;">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn--outline btn--small" onclick="return confirm('Delete this address?');">Delete</button>
+          </form>
+        </div>
+      </div>
+    {%- endfor -%}
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "Addresses",
+  "settings": []
+}
+{% endschema %}

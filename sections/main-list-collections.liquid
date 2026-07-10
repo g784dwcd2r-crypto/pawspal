@@ -1,0 +1,38 @@
+<div class="page-width">
+  <div class="collection-banner">
+    <h1>{{ section.settings.title }}</h1>
+  </div>
+
+  {%- paginate collections by 24 -%}
+    <div class="category-grid" style="--cols: 4; padding-bottom: 4rem;">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" class="category-card">
+          <div class="category-card__media">
+            {%- assign image = collection.featured_image -%}
+            {%- if image -%}
+              <img src="{{ image | image_url: width: 600 }}" alt="{{ collection.title | escape }}" loading="lazy" width="600" height="600">
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+          <span class="category-card__title">{{ collection.title }} {% render 'icon', name: 'arrow-right' %}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Shop all collections"
+    }
+  ]
+}
+{% endschema %}

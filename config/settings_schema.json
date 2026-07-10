@@ -1,0 +1,218 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Good Dog",
+    "theme_version": "1.0.0",
+    "theme_author": "Cleaningclockin",
+    "theme_documentation_url": "https://github.com/g784dwcd2r-crypto/Cleaningclockin",
+    "theme_support_url": "https://github.com/g784dwcd2r-crypto/Cleaningclockin"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Page background",
+        "default": "#FFF9F4"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Cards & surfaces",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#22304A"
+      },
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary (buttons & links)",
+        "default": "#22304A"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (blush)",
+        "default": "#EE9B8F"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_soft",
+        "label": "Accent soft (tints & bands)",
+        "default": "#FBE7E1"
+      },
+      {
+        "type": "color",
+        "id": "color_highlight",
+        "label": "Highlight (sage)",
+        "default": "#9DB89C"
+      },
+      {
+        "type": "color",
+        "id": "color_sale",
+        "label": "Sale badge",
+        "default": "#D96C57"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_heading_font",
+        "label": "Heading font",
+        "default": "playfair_display_n4",
+        "info": "A serif gives the premium, editorial feel."
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body font",
+        "default": "assistant_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "unit": "px",
+        "label": "Page width",
+        "default": 1240
+      },
+      {
+        "type": "range",
+        "id": "corner_radius",
+        "min": 0,
+        "max": 28,
+        "step": 2,
+        "unit": "px",
+        "label": "Corner radius (cards & images)",
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Product cards",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_secondary_image",
+        "label": "Show second image on hover",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quick_add",
+        "label": "Show quick add button",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "new_badge_days",
+        "min": 0,
+        "max": 60,
+        "step": 5,
+        "label": "Show \"New\" badge for products created within (days)",
+        "info": "Set to 0 to disable.",
+        "default": 30
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          { "value": "drawer", "label": "Drawer" },
+          { "value": "page", "label": "Page" }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "range",
+        "id": "free_shipping_threshold",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "label": "Free shipping threshold",
+        "info": "Shown as a progress bar in the cart. Set to 0 to hide.",
+        "default": 50
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_note_enable",
+        "label": "Enable order note",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_giveback_text",
+        "label": "Give-back message in cart",
+        "default": "🐾 This order donates a meal to a shelter dog."
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "https://instagram.com/yourstore"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  }
+]

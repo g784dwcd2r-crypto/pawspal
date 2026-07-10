@@ -1,0 +1,59 @@
+<div class="page-width">
+  <div class="collection-banner">
+    <h1>Search</h1>
+    {%- if search.performed -%}
+      <p class="collection-banner__description">
+        {%- if search.results_count == 0 -%}
+          No results for &ldquo;{{ search.terms | escape }}&rdquo;
+        {%- else -%}
+          {{ search.results_count }} result{% if search.results_count != 1 %}s{% endif %} for &ldquo;{{ search.terms | escape }}&rdquo;
+        {%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search-page__form">
+    <input
+      type="search"
+      name="q"
+      value="{{ search.terms | escape }}"
+      placeholder="Search collars, leashes, toys…"
+      aria-label="Search">
+    <button type="submit" class="btn btn--primary">Search</button>
+  </form>
+
+  {%- if search.performed and search.results_count > 0 -%}
+    {%- paginate search.results by 24 -%}
+      <div class="product-grid" style="--cols: 4;">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {% render 'product-card', product: item %}
+          {%- else -%}
+            <div class="search-result-item">
+              <p class="search-result-item__type">{{ item.object_type }}</p>
+              <h3 class="h4"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              {%- if item.content -%}
+                <p>{{ item.content | strip_html | truncate: 120 }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {% render 'pagination', paginate: paginate %}
+    {%- endpaginate -%}
+  {%- elsif search.performed -%}
+    <div class="collection-empty">
+      {% render 'icon', name: 'paw' %}
+      <h2>Nothing turned up</h2>
+      <p>Try a different search, or browse our bestsellers instead.</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">Shop all</a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Search",
+  "settings": []
+}
+{% endschema %}
