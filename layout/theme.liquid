@@ -78,14 +78,13 @@
 <body class="template-{{ request.page_type | handle }}" data-cart-type="{{ settings.cart_type }}">
   <a class="skip-to-content visually-hidden" href="#MainContent">Skip to content</a>
 
-  {% section 'announcement-bar' %}
-  {% section 'header' %}
+  {% sections 'header-group' %}
 
   <main id="MainContent" role="main">
     {{ content_for_layout }}
   </main>
 
-  {% section 'footer' %}
+  {% sections 'footer-group' %}
   {% section 'cart-drawer' %}
 
   <div class="page-overlay" id="PageOverlay" hidden></div>

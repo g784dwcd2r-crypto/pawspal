@@ -1,0 +1,20 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "about_text": "Botanical bandanas for very good dogs (and curious cats). Every print is inspired by the language of flowers — printed to order and made with love.",
+        "menu_1_heading": "Shop",
+        "menu_1": "main-menu",
+        "menu_2_heading": "Help",
+        "menu_2": "footer",
+        "newsletter_heading": "Join the pack",
+        "newsletter_text": "New prints, exclusive offers, and very good dog photos. No spam — paw to heart.",
+        "giveback_text": "Made with love for very good dogs. 🐾"
+      }
+    }
+  },
+  "order": ["footer"]
+}

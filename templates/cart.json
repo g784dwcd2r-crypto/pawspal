@@ -8,8 +8,9 @@
       "type": "featured-collection",
       "settings": {
         "eyebrow": "Before you go",
-        "heading": "Add a little treat",
+        "heading": "One more print?",
         "subheading": "",
+        "collection": "botanical-bandanas",
         "products_to_show": 4,
         "columns": 4,
         "show_view_all": false,

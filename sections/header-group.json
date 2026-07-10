@@ -1,0 +1,37 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "msg-collection": {
+          "type": "announcement",
+          "settings": {
+            "text": "🌿 New in: The Botanical Bandana Collection"
+          }
+        },
+        "msg-shipping": {
+          "type": "announcement",
+          "settings": {
+            "text": "🚚 Free UK shipping on orders over £50"
+          }
+        }
+      },
+      "block_order": ["msg-collection", "msg-shipping"],
+      "settings": {
+        "color_scheme": "primary"
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_width": 150,
+        "menu": "main-menu",
+        "enable_sticky": true,
+        "show_search": true
+      }
+    }
+  },
+  "order": ["announcement", "header"]
+}
