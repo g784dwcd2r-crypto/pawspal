@@ -24,10 +24,12 @@
 
   {% render 'meta-tags' %}
 
-  {{ settings.type_body_font | font_face: font_display: 'swap' }}
-  {{ settings.type_heading_font | font_face: font_display: 'swap' }}
-  {%- assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold' -%}
-  {%- if body_font_bold -%}{{ body_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
+  {% style %}
+    {{ settings.type_body_font | font_face: font_display: 'swap' }}
+    {{ settings.type_heading_font | font_face: font_display: 'swap' }}
+    {%- assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold' -%}
+    {%- if body_font_bold -%}{{ body_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
+  {% endstyle %}
 
   {% style %}
     :root {
