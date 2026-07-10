@@ -1,6 +1,7 @@
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 
 <div class="page-width">
+  {% render 'breadcrumbs' %}
   <div class="product-page">
 
     <div class="product-gallery">
@@ -103,6 +104,20 @@
         </div>
       {%- endif -%}
 
+      {%- if section.settings.trust_1 != blank or section.settings.trust_2 != blank or section.settings.trust_3 != blank -%}
+        <div class="product-trust">
+          {%- if section.settings.trust_1 != blank -%}
+            <span>{% render 'icon', name: 'heart' %} {{ section.settings.trust_1 }}</span>
+          {%- endif -%}
+          {%- if section.settings.trust_2 != blank -%}
+            <span>{% render 'icon', name: 'wash' %} {{ section.settings.trust_2 }}</span>
+          {%- endif -%}
+          {%- if section.settings.trust_3 != blank -%}
+            <span>{% render 'icon', name: 'truck' %} {{ section.settings.trust_3 }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
       {%- if product.description != blank -%}
         <div class="product-info__description rte">{{ product.description }}</div>
       {%- endif -%}
@@ -156,7 +171,25 @@
       "type": "text",
       "id": "giveback_text",
       "label": "Give-back message",
-      "default": "This purchase donates a meal to a shelter dog."
+      "default": "Printed to order for your very good pet 🐾"
+    },
+    {
+      "type": "text",
+      "id": "trust_1",
+      "label": "Trust chip 1 (heart icon)",
+      "default": "Made to order"
+    },
+    {
+      "type": "text",
+      "id": "trust_2",
+      "label": "Trust chip 2 (wash icon)",
+      "default": "Machine washable"
+    },
+    {
+      "type": "text",
+      "id": "trust_3",
+      "label": "Trust chip 3 (truck icon)",
+      "default": "Free UK shipping £50+"
     }
   ],
   "blocks": [

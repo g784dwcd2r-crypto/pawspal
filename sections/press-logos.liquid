@@ -7,7 +7,7 @@
       {%- for block in section.blocks -%}
         <span class="press-logos__item" {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.name | escape }}" loading="lazy" height="34">
+            <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.name | escape }}" loading="lazy" width="{{ 34 | times: block.settings.image.aspect_ratio | round }}" height="34">
           {%- else -%}
             {{ block.settings.name }}
           {%- endif -%}

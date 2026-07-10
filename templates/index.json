@@ -1,17 +1,23 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "hero-split",
+      "blocks": {
+        "chip-made": { "type": "chip", "settings": { "icon": "heart", "text": "Made to order" } },
+        "chip-wash": { "type": "chip", "settings": { "icon": "wash", "text": "Machine washable" } },
+        "chip-ship": { "type": "chip", "settings": { "icon": "truck", "text": "Free UK shipping £50+" } }
+      },
+      "block_order": ["chip-made", "chip-wash", "chip-ship"],
       "settings": {
-        "height": "large",
-        "alignment": "left",
-        "eyebrow": "The Botanical Collection",
-        "heading": "Bandanas in full bloom",
-        "text": "Flower-inspired bandanas for very good dogs (and curious cats) — each print tells its own botanical story.",
-        "button_label": "Shop the collection",
+        "eyebrow": "Fourteen illustrated worlds",
+        "heading": "Story-print bandanas for",
+        "heading_accent": "very good pets",
+        "text": "From botanical blooms to celestial skies — illustrated, made-to-order bandanas for dogs and cats, printed in fourteen little worlds.",
+        "button_label": "Shop bestsellers",
         "button_link": "/collections/botanical-bandanas",
-        "button_label_2": "",
-        "overlay_opacity": 25
+        "button_label_2": "Explore the worlds",
+        "button_link_2": "/collections",
+        "badge_text": "Printed to order in the UK"
       }
     },
     "marquee": {
@@ -21,12 +27,43 @@
         "color_scheme": "primary"
       }
     },
+    "worlds": {
+      "type": "category-rail",
+      "blocks": {
+        "world-botanical": { "type": "collection", "settings": { "collection": "botanical-bandanas" } },
+        "world-celestial": { "type": "collection", "settings": { "collection": "celestial-bandanas" } },
+        "world-ocean": { "type": "collection", "settings": { "collection": "ocean-sea" } },
+        "world-garden": { "type": "collection", "settings": { "collection": "garden-harvest" } },
+        "world-nature": { "type": "collection", "settings": { "collection": "nature" } },
+        "world-fairy": { "type": "collection", "settings": { "collection": "fairy-tale-forest" } },
+        "world-vintage": { "type": "collection", "settings": { "collection": "vintage-retro" } },
+        "world-underwater": { "type": "collection", "settings": { "collection": "underwater-dreamscape" } },
+        "world-travel": { "type": "collection", "settings": { "collection": "travel-maps" } },
+        "world-apothecary": { "type": "collection", "settings": { "collection": "apothecary-potions" } },
+        "world-carnival": { "type": "collection", "settings": { "collection": "carnival" } },
+        "world-ukiyoe": { "type": "collection", "settings": { "collection": "japanese-ukiyo-e" } },
+        "world-folklore": { "type": "collection", "settings": { "collection": "folklore-mythology" } },
+        "world-witchy": { "type": "collection", "settings": { "collection": "witchy-autumn" } }
+      },
+      "block_order": [
+        "world-botanical", "world-celestial", "world-ocean", "world-garden",
+        "world-nature", "world-fairy", "world-vintage", "world-underwater",
+        "world-travel", "world-apothecary", "world-carnival", "world-ukiyoe",
+        "world-folklore", "world-witchy"
+      ],
+      "settings": {
+        "eyebrow": "Shop by collection",
+        "heading": "Explore the fourteen worlds",
+        "show_view_all": true,
+        "show_count": true
+      }
+    },
     "bestsellers": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "Shop the collection",
-        "heading": "The Botanical Bandanas",
-        "subheading": "Eight prints, each with a story — from sea-calm Marina to sun-chasing Soleil.",
+        "eyebrow": "Customer favourites",
+        "heading": "The Botanical Collection",
+        "subheading": "Prints inspired by the language of flowers.",
         "collection": "botanical-bandanas",
         "products_to_show": 8,
         "columns": 4,
@@ -37,12 +74,12 @@
     "values": {
       "type": "values-bar",
       "blocks": {
-        "val-botanical": { "type": "value", "settings": { "icon": "leaf", "heading": "Botanical prints", "text": "Every design is inspired by the language of flowers." } },
-        "val-madetoorder": { "type": "value", "settings": { "icon": "heart", "heading": "Made to order", "text": "Each bandana is printed just for your pet." } },
-        "val-washable": { "type": "value", "settings": { "icon": "wash", "heading": "Machine washable", "text": "Easy-care fabric that stays vivid wash after wash." } },
+        "val-prints": { "type": "value", "settings": { "icon": "leaf", "heading": "Illustrated prints", "text": "Fourteen little worlds, from botanical to celestial." } },
+        "val-made": { "type": "value", "settings": { "icon": "heart", "heading": "Made to order", "text": "Each bandana is printed just for your pet." } },
+        "val-wash": { "type": "value", "settings": { "icon": "wash", "heading": "Machine washable", "text": "Easy-care fabric that stays vivid wash after wash." } },
         "val-sizes": { "type": "value", "settings": { "icon": "paw", "heading": "Two sizes", "text": "A fit for everyone, from curious cats to big good dogs." } }
       },
-      "block_order": ["val-botanical", "val-madetoorder", "val-washable", "val-sizes"],
+      "block_order": ["val-prints", "val-made", "val-wash", "val-sizes"],
       "settings": {
         "background": "band"
       }
@@ -54,10 +91,25 @@
         "layout": "image_first",
         "eyebrow": "Our story",
         "heading": "Every print tells a story",
-        "text": "<p>From sea-soft Marina to sun-chasing Soleil, every bandana in the Botanical Collection is inspired by the meaning of flowers — designed to match your pet's personality. Printed to order, tied with love, and ready for the next adventure.</p>",
+        "text": "<p>From sea-soft Marina to sun-chasing Soleil, every bandana is inspired by the meaning of flowers and the little worlds pets live in. Printed to order, tied with love, and ready for the next adventure.</p>",
         "button_label": "Shop the collection",
         "button_link": "/collections/botanical-bandanas",
+        "stat_number": "14",
+        "stat_label": "illustrated worlds",
         "background": "default"
+      }
+    },
+    "celestial": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "New world",
+        "heading": "The Celestial Collection",
+        "subheading": "For pets who dream just above the clouds.",
+        "collection": "celestial-bandanas",
+        "products_to_show": 4,
+        "columns": 4,
+        "show_view_all": true,
+        "background": "band"
       }
     },
     "reviews": {
@@ -71,7 +123,7 @@
       "settings": {
         "eyebrow": "Wag-worthy reviews",
         "heading": "Loved by very good pets",
-        "background": "band"
+        "background": "default"
       }
     },
     "instagram": {
@@ -95,7 +147,7 @@
       "settings": {
         "eyebrow": "Join the pack",
         "heading": "Get 10% off your first order",
-        "text": "New prints, exclusive offers, and very good dog photos. No spam — paw to heart.",
+        "text": "New worlds, exclusive offers, and very good pet photos. No spam — paw to heart.",
         "button_label": "Subscribe"
       }
     }
@@ -103,9 +155,11 @@
   "order": [
     "hero",
     "marquee",
+    "worlds",
     "bestsellers",
     "values",
     "story",
+    "celestial",
     "reviews",
     "instagram",
     "newsletter"

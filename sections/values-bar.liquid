@@ -2,8 +2,8 @@
   <div class="page-width">
     <div class="values-bar" style="--cols: {{ section.blocks.size | at_most: 4 }};">
       {%- for block in section.blocks -%}
-        <div class="values-bar__item" {{ block.shopify_attributes }}>
-          {% render 'icon', name: block.settings.icon %}
+        <div class="values-bar__item" data-reveal style="--reveal-delay: {{ forloop.index0 | times: 80 }}ms;" {{ block.shopify_attributes }}>
+          <span class="values-bar__icon">{% render 'icon', name: block.settings.icon %}</span>
           <h4>{{ block.settings.heading }}</h4>
           <p>{{ block.settings.text }}</p>
         </div>

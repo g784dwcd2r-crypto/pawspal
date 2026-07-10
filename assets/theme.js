@@ -1,4 +1,4 @@
-/* Good Dog — theme.js */
+/* PawsPal · Good Dog v2 — theme.js */
 (function () {
   'use strict';
 
@@ -48,6 +48,42 @@
     document.body.style.overflow = 'hidden';
     openOverlay();
   }
+
+  /* ---------- Scroll reveal ---------- */
+  function initReveal() {
+    var nodes = qsa('[data-reveal]');
+    if (!nodes.length) return;
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      nodes.forEach(function (n) { n.classList.add('is-revealed'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    nodes.forEach(function (n) { io.observe(n); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+
+  /* ---------- Category rail arrows ---------- */
+  document.addEventListener('click', function (e) {
+    var arrow = e.target.closest('[data-rail-scroll]');
+    if (!arrow) return;
+    e.preventDefault();
+    var rail = qs('.category-rail__track', arrow.closest('.category-rail'));
+    if (!rail) return;
+    var dir = arrow.getAttribute('data-rail-scroll') === 'next' ? 1 : -1;
+    rail.scrollBy({ left: dir * rail.clientWidth * 0.8, behavior: 'smooth' });
+  });
 
   /* ---------- Sticky header shadow ---------- */
   var header = qs('.site-header');
