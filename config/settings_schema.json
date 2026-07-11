@@ -67,7 +67,7 @@
         "type": "font_picker",
         "id": "type_heading_font",
         "label": "Heading font",
-        "default": "cormorant_garamond_n5",
+        "default": "cardo_n4",
         "info": "A garamond-style serif gives the storybook feel."
       },
       {
