@@ -10,12 +10,12 @@
       "block_order": ["chip-made", "chip-wash", "chip-ship"],
       "settings": {
         "eyebrow": "Fourteen illustrated worlds",
-        "heading": "Story-print bandanas for",
-        "heading_accent": "very good pets",
-        "text": "From botanical blooms to celestial skies — illustrated, made-to-order bandanas for dogs and cats, printed in fourteen little worlds.",
-        "button_label": "Shop bestsellers",
+        "heading": "Every pet deserves a",
+        "heading_accent": "storybook ending",
+        "text": "Illustrated bandanas from fourteen little worlds — inked with folklore, pressed flowers and night skies, and printed to order for dogs and cats.",
+        "button_label": "Begin the story",
         "button_link": "/collections/botanical-bandanas",
-        "button_label_2": "Explore the worlds",
+        "button_label_2": "The fourteen worlds",
         "button_link_2": "/collections",
         "badge_text": "Printed to order in the UK"
       }
@@ -23,7 +23,7 @@
     "marquee": {
       "type": "marquee",
       "settings": {
-        "text": "Bloom. Sniff. Wag.",
+        "text": "Once upon a very good dog",
         "color_scheme": "primary"
       }
     },
@@ -52,8 +52,8 @@
         "world-folklore", "world-witchy"
       ],
       "settings": {
-        "eyebrow": "Shop by collection",
-        "heading": "Explore the fourteen worlds",
+        "eyebrow": "Choose your chapter",
+        "heading": "The fourteen worlds",
         "show_view_all": true,
         "show_count": true
       }
@@ -61,7 +61,7 @@
     "bestsellers": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "Customer favourites",
+        "eyebrow": "Chapter I",
         "heading": "The Botanical Collection",
         "subheading": "Prints inspired by the language of flowers.",
         "collection": "botanical-bandanas",
@@ -102,7 +102,7 @@
     "celestial": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "New world",
+        "eyebrow": "Chapter II",
         "heading": "The Celestial Collection",
         "subheading": "For pets who dream just above the clouds.",
         "collection": "celestial-bandanas",
@@ -122,7 +122,7 @@
       "block_order": ["review-1", "review-2", "review-3"],
       "settings": {
         "eyebrow": "Wag-worthy reviews",
-        "heading": "Loved by very good pets",
+        "heading": "Tales from the pack",
         "background": "default"
       }
     },
@@ -146,7 +146,7 @@
       "type": "newsletter",
       "settings": {
         "eyebrow": "Join the pack",
-        "heading": "Get 10% off your first order",
+        "heading": "Get 10% off your first chapter",
         "text": "New worlds, exclusive offers, and very good pet photos. No spam — paw to heart.",
         "button_label": "Subscribe"
       }

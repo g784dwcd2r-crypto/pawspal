@@ -8,13 +8,13 @@
         "msg-collection": {
           "type": "announcement",
           "settings": {
-            "text": "🌿 New in: The Botanical Bandana Collection"
+            "text": "✶ Fourteen illustrated worlds — printed to order ✶"
           }
         },
         "msg-shipping": {
           "type": "announcement",
           "settings": {
-            "text": "🚚 Free UK shipping on orders over £50"
+            "text": "Free UK shipping on orders over £50"
           }
         }
       },

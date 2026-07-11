@@ -14,49 +14,49 @@
         "type": "color",
         "id": "color_background",
         "label": "Page background",
-        "default": "#FFF9F4"
+        "default": "#F6EFDF"
       },
       {
         "type": "color",
         "id": "color_surface",
         "label": "Cards & surfaces",
-        "default": "#FFFFFF"
+        "default": "#FBF5E6"
       },
       {
         "type": "color",
         "id": "color_text",
         "label": "Text",
-        "default": "#22304A"
+        "default": "#22392E"
       },
       {
         "type": "color",
         "id": "color_primary",
         "label": "Primary (buttons & links)",
-        "default": "#22304A"
+        "default": "#22392E"
       },
       {
         "type": "color",
         "id": "color_accent",
-        "label": "Accent (blush)",
-        "default": "#EE9B8F"
+        "label": "Accent (sienna)",
+        "default": "#A9553F"
       },
       {
         "type": "color",
         "id": "color_accent_soft",
         "label": "Accent soft (tints & bands)",
-        "default": "#FBE7E1"
+        "default": "#EFE5CC"
       },
       {
         "type": "color",
         "id": "color_highlight",
-        "label": "Highlight (sage)",
-        "default": "#9DB89C"
+        "label": "Highlight (gold)",
+        "default": "#C9962E"
       },
       {
         "type": "color",
         "id": "color_sale",
         "label": "Sale badge",
-        "default": "#D96C57"
+        "default": "#A9553F"
       }
     ]
   },
@@ -67,14 +67,14 @@
         "type": "font_picker",
         "id": "type_heading_font",
         "label": "Heading font",
-        "default": "playfair_display_n4",
-        "info": "A serif gives the premium, editorial feel."
+        "default": "cormorant_garamond_n5",
+        "info": "A garamond-style serif gives the storybook feel."
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
         "label": "Body font",
-        "default": "assistant_n4"
+        "default": "lora_n4"
       }
     ]
   },
@@ -99,7 +99,7 @@
         "step": 2,
         "unit": "px",
         "label": "Corner radius (cards & images)",
-        "default": 16
+        "default": 6
       }
     ]
   },
