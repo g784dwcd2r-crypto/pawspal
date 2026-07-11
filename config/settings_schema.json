@@ -14,49 +14,49 @@
         "type": "color",
         "id": "color_background",
         "label": "Page background",
-        "default": "#F6EFDF"
+        "default": "#FCF6EA"
       },
       {
         "type": "color",
         "id": "color_surface",
         "label": "Cards & surfaces",
-        "default": "#FBF5E6"
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_text",
-        "label": "Text",
-        "default": "#22392E"
+        "label": "Text (ink)",
+        "default": "#2B2118"
       },
       {
         "type": "color",
         "id": "color_primary",
         "label": "Primary (buttons & links)",
-        "default": "#22392E"
+        "default": "#2B2118"
       },
       {
         "type": "color",
         "id": "color_accent",
-        "label": "Accent (sienna)",
-        "default": "#A9553F"
+        "label": "Accent (coral)",
+        "default": "#E4573D"
       },
       {
         "type": "color",
         "id": "color_accent_soft",
         "label": "Accent soft (tints & bands)",
-        "default": "#EFE5CC"
+        "default": "#FAE3D3"
       },
       {
         "type": "color",
         "id": "color_highlight",
-        "label": "Highlight (gold)",
-        "default": "#C9962E"
+        "label": "Highlight (mustard)",
+        "default": "#E9A820"
       },
       {
         "type": "color",
         "id": "color_sale",
         "label": "Sale badge",
-        "default": "#A9553F"
+        "default": "#E4573D"
       }
     ]
   },
@@ -67,14 +67,14 @@
         "type": "font_picker",
         "id": "type_heading_font",
         "label": "Heading font",
-        "default": "cardo_n4",
-        "info": "A garamond-style serif gives the storybook feel."
+        "default": "fraunces_n5",
+        "info": "A warm, characterful serif gives the artist-studio feel."
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
         "label": "Body font",
-        "default": "lora_n4"
+        "default": "karla_n4"
       }
     ]
   },

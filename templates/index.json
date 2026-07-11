@@ -3,151 +3,118 @@
     "hero": {
       "type": "hero-split",
       "blocks": {
+        "chip-photo": { "type": "chip", "settings": { "icon": "star", "text": "One photo is all we need" } },
         "chip-made": { "type": "chip", "settings": { "icon": "heart", "text": "Made to order" } },
-        "chip-wash": { "type": "chip", "settings": { "icon": "wash", "text": "Machine washable" } },
         "chip-ship": { "type": "chip", "settings": { "icon": "truck", "text": "Free UK shipping £50+" } }
       },
-      "block_order": ["chip-made", "chip-wash", "chip-ship"],
+      "block_order": ["chip-photo", "chip-made", "chip-ship"],
       "settings": {
-        "eyebrow": "Fourteen illustrated worlds",
-        "heading": "Every pet deserves a",
-        "heading_accent": "storybook ending",
-        "text": "Illustrated bandanas from fourteen little worlds — inked with folklore, pressed flowers and night skies, and printed to order for dogs and cats.",
-        "button_label": "Begin the story",
-        "button_link": "/collections/botanical-bandanas",
-        "button_label_2": "The fourteen worlds",
-        "button_link_2": "/collections",
-        "badge_text": "Printed to order in the UK"
+        "eyebrow": "The art studio for pets",
+        "heading": "Your pet, painted into",
+        "heading_accent": "a little masterpiece",
+        "text": "Custom portraits, illustrated bandanas, colouring books starring your own pet, and matching tees for their favourite human — all drawn by hand from one photo.",
+        "button_label": "Start a commission",
+        "button_link": "/collections/art-prints",
+        "button_label_2": "Shop bandanas",
+        "button_link_2": "/collections/bandanas",
+        "badge_text": "Made to order in the UK"
       }
     },
     "marquee": {
       "type": "marquee",
       "settings": {
-        "text": "Once upon a very good dog",
+        "text": "Paint. Print. Wag.",
         "color_scheme": "primary"
       }
     },
-    "worlds": {
-      "type": "category-rail",
+    "offers": {
+      "type": "offer-grid",
       "blocks": {
-        "world-botanical": { "type": "collection", "settings": { "collection": "botanical-bandanas" } },
-        "world-celestial": { "type": "collection", "settings": { "collection": "celestial-bandanas" } },
-        "world-ocean": { "type": "collection", "settings": { "collection": "ocean-sea" } },
-        "world-garden": { "type": "collection", "settings": { "collection": "garden-harvest" } },
-        "world-nature": { "type": "collection", "settings": { "collection": "nature" } },
-        "world-fairy": { "type": "collection", "settings": { "collection": "fairy-tale-forest" } },
-        "world-vintage": { "type": "collection", "settings": { "collection": "vintage-retro" } },
-        "world-underwater": { "type": "collection", "settings": { "collection": "underwater-dreamscape" } },
-        "world-travel": { "type": "collection", "settings": { "collection": "travel-maps" } },
-        "world-apothecary": { "type": "collection", "settings": { "collection": "apothecary-potions" } },
-        "world-carnival": { "type": "collection", "settings": { "collection": "carnival" } },
-        "world-ukiyoe": { "type": "collection", "settings": { "collection": "japanese-ukiyo-e" } },
-        "world-folklore": { "type": "collection", "settings": { "collection": "folklore-mythology" } },
-        "world-witchy": { "type": "collection", "settings": { "collection": "witchy-autumn" } }
+        "offer-portraits": { "type": "offer", "settings": { "collection": "art-prints", "title": "Custom Portraits", "text": "Your pet, hand-illustrated from a photo — ready to frame.", "cta": "Commission one", "icon": "portrait", "paint": "coral" } },
+        "offer-bandanas": { "type": "offer", "settings": { "collection": "bandanas", "title": "Bandanas", "text": "Illustrated story prints, plus name bandanas hand-lettered for your pet.", "cta": "Shop bandanas", "icon": "bandana", "paint": "teal" } },
+        "offer-ebooks": { "type": "offer", "settings": { "collection": "e-book", "title": "Colouring eBooks", "text": "A printable colouring book starring your own pet, page by page.", "cta": "See how it works", "icon": "book", "paint": "lilac" } },
+        "offer-apparel": { "type": "offer", "settings": { "collection": "hoodies", "title": "Hoodies & Tees", "text": "Wear your pet — illustrated on your chest, printed to order.", "cta": "Shop apparel", "icon": "hoodie", "paint": "sky" } },
+        "offer-matching": { "type": "offer", "settings": { "collection": "matching-sets", "title": "Matching Sets", "text": "One print, two of you — a bandana for them, a tee for you.", "cta": "Match with them", "icon": "matching", "paint": "rose" } },
+        "offer-pins": { "type": "offer", "settings": { "collection": "pins", "title": "Enamel Pins", "text": "Tiny wearable artworks for lapels, totes and camera straps.", "cta": "Shop pins", "icon": "pin", "paint": "mustard" } }
       },
-      "block_order": [
-        "world-botanical", "world-celestial", "world-ocean", "world-garden",
-        "world-nature", "world-fairy", "world-vintage", "world-underwater",
-        "world-travel", "world-apothecary", "world-carnival", "world-ukiyoe",
-        "world-folklore", "world-witchy"
-      ],
+      "block_order": ["offer-portraits", "offer-bandanas", "offer-ebooks", "offer-apparel", "offer-matching", "offer-pins"],
       "settings": {
-        "eyebrow": "Choose your chapter",
-        "heading": "The fourteen worlds",
-        "show_view_all": true,
-        "show_count": true
+        "eyebrow": "Made from one photo",
+        "heading": "What comes out of the studio",
+        "subheading": "Six ways to celebrate a very good pet."
       }
     },
-    "bestsellers": {
+    "process": {
+      "type": "process",
+      "blocks": {
+        "step-photo": { "type": "step", "settings": { "heading": "Send a photo", "text": "One good photo is all we need — daylight, both eyes visible." } },
+        "step-draw": { "type": "step", "settings": { "heading": "We illustrate", "text": "Our artists draw your pet by hand — sketched, refined and coloured individually." } },
+        "step-deliver": { "type": "step", "settings": { "heading": "Made & delivered", "text": "Printed to order in the UK, or delivered as a download — ready to wag." } }
+      },
+      "block_order": ["step-photo", "step-draw", "step-deliver"],
+      "settings": {
+        "eyebrow": "From photo to masterpiece",
+        "heading": "How a commission works",
+        "subheading": "",
+        "button_label": "Start a commission",
+        "button_link": "/collections/art-prints"
+      }
+    },
+    "favourites": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "Chapter I",
-        "heading": "The Botanical Collection",
-        "subheading": "Prints inspired by the language of flowers.",
-        "collection": "botanical-bandanas",
+        "eyebrow": "Fresh from the studio",
+        "heading": "Studio favourites",
+        "subheading": "",
+        "collection": "studio-favourites",
         "products_to_show": 8,
         "columns": 4,
         "show_view_all": true,
         "background": "default"
       }
     },
-    "values": {
-      "type": "values-bar",
-      "blocks": {
-        "val-prints": { "type": "value", "settings": { "icon": "leaf", "heading": "Illustrated prints", "text": "Fourteen little worlds, from botanical to celestial." } },
-        "val-made": { "type": "value", "settings": { "icon": "heart", "heading": "Made to order", "text": "Each bandana is printed just for your pet." } },
-        "val-wash": { "type": "value", "settings": { "icon": "wash", "heading": "Machine washable", "text": "Easy-care fabric that stays vivid wash after wash." } },
-        "val-sizes": { "type": "value", "settings": { "icon": "paw", "heading": "Two sizes", "text": "A fit for everyone, from curious cats to big good dogs." } }
-      },
-      "block_order": ["val-prints", "val-made", "val-wash", "val-sizes"],
-      "settings": {
-        "background": "band"
-      }
-    },
     "story": {
       "type": "image-with-text",
       "settings": {
-        "image": "shopify://shop_images/15818534244989375991_2048.jpg",
         "layout": "image_first",
         "eyebrow": "Our story",
-        "heading": "Every print tells a story",
-        "text": "<p>From sea-soft Marina to sun-chasing Soleil, every bandana is inspired by the meaning of flowers and the little worlds pets live in. Printed to order, tied with love, and ready for the next adventure.</p>",
-        "button_label": "Shop the collection",
-        "button_link": "/collections/botanical-bandanas",
-        "stat_number": "14",
-        "stat_label": "illustrated worlds",
+        "heading": "Every pet is a muse",
+        "text": "<p>PawsPal is a small art studio that happens to be a shop. Everything here starts as an illustration — drawn by hand, coloured like a paintbox, and made for the animals who run our homes and our hearts. Nothing is mass-produced, because nothing about your pet is.</p>",
+        "button_label": "Read our story",
+        "button_link": "/pages/our-story",
+        "stat_number": "1",
+        "stat_label": "photo is all we need",
         "background": "default"
       }
     },
-    "celestial": {
-      "type": "featured-collection",
+    "blog": {
+      "type": "blog-teaser",
       "settings": {
-        "eyebrow": "Chapter II",
-        "heading": "The Celestial Collection",
-        "subheading": "For pets who dream just above the clouds.",
-        "collection": "celestial-bandanas",
-        "products_to_show": 4,
-        "columns": 4,
-        "show_view_all": true,
-        "background": "band"
+        "eyebrow": "Notes & guides",
+        "heading": "From the sketchbook",
+        "blog": "the-sketchbook"
       }
     },
     "reviews": {
       "type": "testimonials",
       "blocks": {
-        "review-1": { "type": "testimonial", "settings": { "stars": 5, "quote": "The quality is incredible and my pup looks adorable. We get compliments on every walk!", "author": "Sarah M.", "detail": "with Biscuit, Golden Retriever" } },
-        "review-2": { "type": "testimonial", "settings": { "stars": 5, "quote": "The Soleil print is even prettier in person — and it survived the washing machine perfectly.", "author": "Jordan T.", "detail": "with Luna, Border Collie" } },
-        "review-3": { "type": "testimonial", "settings": { "stars": 5, "quote": "Bought the small size for my cat and she actually keeps it on. Miracle bandana.", "author": "Priya K.", "detail": "with Mochi, very tolerant cat" } }
+        "review-1": { "type": "testimonial", "settings": { "stars": 5, "quote": "The portrait captured Biscuit's judgemental eyebrow perfectly. I cried, then framed it.", "author": "Sarah M.", "detail": "commissioned a portrait of Biscuit" } },
+        "review-2": { "type": "testimonial", "settings": { "stars": 5, "quote": "The colouring book of my own cat is the strangest, most wonderful gift I've ever given anyone.", "author": "Jordan T.", "detail": "ordered a colouring ebook of Luna" } },
+        "review-3": { "type": "testimonial", "settings": { "stars": 5, "quote": "We wear the matching set on every walk. People stop us. Mochi pretends not to love it.", "author": "Priya K.", "detail": "matching set with Mochi" } }
       },
       "block_order": ["review-1", "review-2", "review-3"],
       "settings": {
-        "eyebrow": "Wag-worthy reviews",
-        "heading": "Tales from the pack",
-        "background": "default"
-      }
-    },
-    "instagram": {
-      "type": "instagram-grid",
-      "blocks": {
-        "insta-1": { "type": "image", "settings": {} },
-        "insta-2": { "type": "image", "settings": {} },
-        "insta-3": { "type": "image", "settings": {} },
-        "insta-4": { "type": "image", "settings": {} },
-        "insta-5": { "type": "image", "settings": {} },
-        "insta-6": { "type": "image", "settings": {} }
-      },
-      "block_order": ["insta-1", "insta-2", "insta-3", "insta-4", "insta-5", "insta-6"],
-      "settings": {
-        "heading": "Pets of the pack",
-        "handle": "@pawspal on Instagram"
+        "eyebrow": "From the wall of fame",
+        "heading": "Very good pets, very happy humans",
+        "background": "band"
       }
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "eyebrow": "Join the pack",
-        "heading": "Get 10% off your first chapter",
-        "text": "New worlds, exclusive offers, and very good pet photos. No spam — paw to heart.",
+        "eyebrow": "Join the studio",
+        "heading": "Get 10% off your first commission",
+        "text": "New art, new products, and very good pet photos in your inbox. No spam — paw to heart.",
         "button_label": "Subscribe"
       }
     }
@@ -155,13 +122,12 @@
   "order": [
     "hero",
     "marquee",
-    "worlds",
-    "bestsellers",
-    "values",
+    "offers",
+    "process",
+    "favourites",
     "story",
-    "celestial",
+    "blog",
     "reviews",
-    "instagram",
     "newsletter"
   ]
 }

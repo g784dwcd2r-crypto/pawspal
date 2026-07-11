@@ -2,8 +2,8 @@
   <div class="page-width">
     <div class="site-footer__grid">
       <div class="site-footer__brand">
-        <h3>{{ shop.name }}</h3>
-        <p>{{ section.settings.about_text }}</p>
+        {% render 'brand-logo', light: true %}
+        <p style="margin-top: 1.6rem;">{{ section.settings.about_text }}</p>
         <div class="site-footer__social">
           {%- if settings.social_instagram_link != blank -%}
             <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>

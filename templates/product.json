@@ -3,24 +3,27 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "acc-sizing": { "type": "accordion", "settings": { "title": "Size guide", "content": "<p>20″ × 10″ fits most cats and small-to-medium dogs; 27″ × 13″ is perfect for bigger pups. The tie-on style adjusts to any neck.</p>" } },
-        "acc-care": { "type": "accordion", "settings": { "title": "Care instructions", "content": "<p>Machine wash cold on a gentle cycle and hang to dry — the botanical print stays vivid wash after wash.</p>" } },
-        "acc-shipping": { "type": "accordion", "settings": { "title": "Shipping & production", "content": "<p>Every bandana is printed to order just for your pet, so please allow a few extra days for production before dispatch.</p>" } }
+        "acc-how": { "type": "accordion", "settings": { "title": "How it works — sending your photo", "content": "<p>For personalised pieces: after checkout, reply to your order confirmation email with your favourite photo of your pet. Daylight, eye level, and both eyes visible make the best illustrations.</p>" } },
+        "acc-sizing": { "type": "accordion", "settings": { "title": "Sizing & fit", "content": "<p>Bandanas: 20″ × 10″ fits cats and small-to-medium dogs; 27″ × 13″ fits bigger pups. Apparel is a relaxed unisex fit — size up for extra cosy.</p>" } },
+        "acc-shipping": { "type": "accordion", "settings": { "title": "Shipping & production", "content": "<p>Every piece is drawn and made to order, so please allow a few days for the studio before dispatch or download delivery. Free UK shipping on orders over £50.</p>" } }
       },
-      "block_order": ["acc-sizing", "acc-care", "acc-shipping"],
+      "block_order": ["acc-how", "acc-sizing", "acc-shipping"],
       "settings": {
         "show_vendor": false,
         "show_dynamic_checkout": true,
-        "giveback_text": "Printed to order for your very good pet 🐾"
+        "giveback_text": "Made to order by a small studio 🎨",
+        "trust_1": "Drawn from your photo",
+        "trust_2": "Machine washable fabrics",
+        "trust_3": "Free UK shipping £50+"
       }
     },
     "recommendations": {
       "type": "featured-collection",
       "settings": {
-        "eyebrow": "Keep sniffing",
-        "heading": "You may also like",
+        "eyebrow": "Keep browsing",
+        "heading": "More from the studio",
         "subheading": "",
-        "collection": "botanical-bandanas",
+        "collection": "studio-favourites",
         "products_to_show": 4,
         "columns": 4,
         "show_view_all": false,

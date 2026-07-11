@@ -1,17 +1,17 @@
 {
   "current": {
-    "color_background": "#F6EFDF",
-    "color_surface": "#FBF5E6",
-    "color_text": "#22392E",
-    "color_primary": "#22392E",
-    "color_accent": "#A9553F",
-    "color_accent_soft": "#EFE5CC",
-    "color_highlight": "#C9962E",
-    "color_sale": "#A9553F",
-    "type_heading_font": "cardo_n4",
-    "type_body_font": "lora_n4",
+    "color_background": "#FCF6EA",
+    "color_surface": "#FFFFFF",
+    "color_text": "#2B2118",
+    "color_primary": "#2B2118",
+    "color_accent": "#E4573D",
+    "color_accent_soft": "#FAE3D3",
+    "color_highlight": "#E9A820",
+    "color_sale": "#E4573D",
+    "type_heading_font": "fraunces_n5",
+    "type_body_font": "karla_n4",
     "page_width": 1280,
-    "corner_radius": 6,
+    "corner_radius": 14,
     "show_vendor": false,
     "show_secondary_image": true,
     "show_quick_add": true,
@@ -19,6 +19,6 @@
     "cart_type": "drawer",
     "free_shipping_threshold": 50,
     "cart_note_enable": true,
-    "cart_giveback_text": "✶ Printed to order with love — thank you for supporting a small business."
+    "cart_giveback_text": "🎨 Made to order by a small studio — thank you for supporting independent art."
   }
 }
