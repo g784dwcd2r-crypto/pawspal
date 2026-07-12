@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_background }}">
   <link rel="canonical" href="{{ canonical_url }}">
+  {%- if request.page_type == 'search' or request.page_type == 'cart' or request.page_type == '404' -%}
+    <meta name="robots" content="noindex,follow">
+  {%- endif -%}
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
   {%- if settings.favicon != blank -%}
@@ -12,17 +15,24 @@
   {%- endif -%}
 
   <title>
-    {{ page_title }}
-    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    {%- if request.page_type == 'index' -%}
+      Custom Pet Portraits from Photos UK &ndash; {{ shop.name }}
+    {%- else -%}
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    {%- endif -%}
   </title>
 
-  {% if page_description %}
+  {%- if request.page_type == 'index' -%}
+    <meta name="description" content="Custom pet portraits hand-illustrated from your photos. Discover personalised digital pet art, printable posters and WhatsApp stickers by real UK artists.">
+  {%- elsif page_description -%}
     <meta name="description" content="{{ page_description | escape }}">
-  {% endif %}
+  {%- endif -%}
 
   {% render 'meta-tags' %}
+  {% render 'structured-data' %}
 
   {%- assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold' -%}
   {% style %}

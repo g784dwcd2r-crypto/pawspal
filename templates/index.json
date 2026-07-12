@@ -77,7 +77,7 @@
     "marquee": {
       "type": "marquee",
       "settings": {
-        "text": "Funky pets art · Digital posters · Sticker packs ·",
+        "text": "Custom Pet Portraits · Digital Pet Art · Printable Pet Posters · WhatsApp Pet Stickers ·",
         "color_scheme": "accent"
       }
     },
@@ -124,7 +124,7 @@
       "block_order": ["cat-posters", "cat-art", "cat-stickers", "category_VJM3dJ"],
       "settings": {
         "eyebrow": "Pick your Art",
-        "heading": "Four ways to get funky",
+        "heading": "Custom Pet Portraits from Your Photos",
         "columns": 2
       }
     },
