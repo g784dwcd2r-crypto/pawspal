@@ -1,1 +1,196 @@
-{"sections":{"1783779721ad5d33c6":{"type":"_blocks","blocks":{"ai_gen_block_8b5d985_3ACnL7":{"type":"ai_gen_block_8b5d985","settings":{"poster_width":250,"poster_height":360,"gap":20,"row_gap":20,"section_padding":40,"background_color":"#c9c3d6","border_radius":0,"shadow_intensity":2,"animation_speed":30,"top_poster_1":"shopify://shop_images/funky_bulldog_julia_q.png","top_poster_2":"shopify://shop_images/extension_cat01_turkish_van_water_splash_julia_q.png","top_poster_3":"shopify://shop_images/extension2_cat03_savannah_harness_walk_julia_q.png","top_poster_4":"shopify://shop_images/extension2_cat04_cornish_rex_post_climb_julia_q.png","top_poster_5":"shopify://shop_images/extension_dog04_greyhound_awkward_sit_julia_q.png","top_poster_6":"shopify://shop_images/extension_cat01_turkish_van_water_splash_julia_q.png","top_poster_7":"shopify://shop_images/extension2_cat02_himalayan_cabinet_paw_julia_q.png","top_poster_8":"shopify://shop_images/extension_cat05_american_curl_kneading_julia_q.png","top_poster_9":"shopify://shop_images/extension2_dog02_newfoundland_back_roll_julia_q.png","top_poster_10":"shopify://shop_images/extension_dog01_dalmatian_yawn_stretch_julia_q.png","top_poster_11":"shopify://shop_images/extension_cat04_oriental_shorthair_stalking_dot_julia_q.png","top_poster_12":"shopify://shop_images/extension_dog03_standard_poodle_water_shake_julia_q.png","bottom_poster_1":"shopify://shop_images/mood_i_am_art_poster.png","bottom_poster_2":"shopify://shop_images/julia_q_dog_poster_aaa2846f-0a7d-4495-a7dd-7b01d922535b.png","bottom_poster_3":"shopify://shop_images/poster_01_squeeze_the_day.png","bottom_poster_4":"shopify://shop_images/poster_02_spill_the_tea.png","bottom_poster_5":"shopify://shop_images/poster_01_wake_up_juice_signed.png","bottom_poster_6":"shopify://shop_images/poster_32_spill_the_tagine.png","bottom_poster_7":"shopify://shop_images/revised_01_when_life_gives_you_lemons_set_sail_signed.png","bottom_poster_8":"shopify://shop_images/poster_09_lets_ketchup.png","bottom_poster_9":"shopify://shop_images/julia_q_dog_poster_2.png","bottom_poster_10":"shopify://shop_images/poster_33_mint_to_be.png","bottom_poster_11":"shopify://shop_images/revised_06_berry_in_love_signed.png","bottom_poster_12":"shopify://shop_images/poster_10_home_slice.png"},"blocks":{}}},"block_order":["ai_gen_block_8b5d985_3ACnL7"],"settings":{}},"marquee":{"type":"marquee","settings":{"text":"Funky pets art · Digital posters · Sticker packs ·","color_scheme":"accent"}},"categories":{"type":"category-grid","blocks":{"cat-posters":{"type":"category","settings":{"collection":"digital-posters","title":"Custom Digital Posters","image":"shopify://shop_images/julia_q_dog_poster.png","link":"shopify://collections/digital-posters"}},"cat-art":{"type":"category","settings":{"collection":"digital-art","title":"Custom Digital Art","image":"shopify://shop_images/funky_bulldog_julia_q.png","link":"shopify://collections/digital-art"}},"cat-stickers":{"type":"category","settings":{"collection":"sticker-packs","title":"Sticker Packs","image":"shopify://shop_images/punk_cat_whatsapp_sticker_poster_julia_q.png","link":"shopify://collections/sticker-packs"}}},"block_order":["cat-posters","cat-art","cat-stickers"],"settings":{"eyebrow":"Pick your format","heading":"Three ways to get funky","columns":3}},"bestsellers":{"type":"featured-collection","settings":{"eyebrow":"Fresh from the easel","heading":"The catalogue","subheading":"Every piece is drawn by hand from your photos. No two artworks are alike.","collection":"studio-favourites","products_to_show":12,"columns":3,"show_view_all":false,"background":"band"}},"values":{"type":"values-bar","blocks":{"val-photos":{"type":"value","settings":{"icon":"star","heading":"Drawn from your photos","text":"Three to five clear photos are all we need to capture their personality."}},"val-revision":{"type":"value","settings":{"icon":"heart","heading":"One free revision","text":"We tweak until it's perfect, because your pet deserves nothing less."}},"val-files":{"type":"value","settings":{"icon":"gift","heading":"Files for everything","text":"Print-ready posters, wallpapers and WhatsApp-ready stickers."}},"val-pets":{"type":"value","settings":{"icon":"paw","heading":"Not just pets","text":"People, couples, cars, even houseplants. If you love it, we'll funk it."}}},"block_order":["val-photos","val-revision","val-files","val-pets"],"settings":{"background":"band"}},"newsletter":{"type":"newsletter","settings":{"eyebrow":"Join the studio","heading":"Get 10% off your first commission","text":"New art styles, sticker drops and very good pet art. No spam, paw promise.","button_label":"Subscribe"}}},"order":["1783779721ad5d33c6","marquee","categories","bestsellers","values","newsletter"]}
+{
+  "sections": {
+    "178388649868ccb164": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_54c643e_hA6nmn": {
+          "type": "ai_gen_block_54c643e",
+          "settings": {
+            "banner_text": "",
+            "instagram_url": "https://www.instagram.com/pawspal.co.uk/",
+            "tiktok_url": "",
+            "threads_url": "https://www.threads.com/@pawspal.co.uk",
+            "x_url": "https://x.com/Pawspet_co_uk",
+            "pinterest_url": "",
+            "kofi_url": "https://ko-fi.com/daninooo#linkModal",
+            "desktop_width_percent": 100,
+            "background_color": "#fbe7e1",
+            "text_color": "#3d3350",
+            "padding": 16,
+            "text_size": 14,
+            "icon_size": 24,
+            "spacing": 16,
+            "icon_spacing": 12
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": ["ai_gen_block_54c643e_hA6nmn"],
+      "settings": {}
+    },
+    "1783779721ad5d33c6": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8b5d985_3ACnL7": {
+          "type": "ai_gen_block_8b5d985",
+          "settings": {
+            "poster_width": 250,
+            "poster_height": 360,
+            "gap": 20,
+            "row_gap": 20,
+            "section_padding": 40,
+            "background_color": "#c9c3d6",
+            "border_radius": 0,
+            "shadow_intensity": 2,
+            "animation_speed": 30,
+            "top_poster_1": "shopify://shop_images/funky_bulldog_julia_q.png",
+            "top_poster_2": "shopify://shop_images/extension_cat01_turkish_van_water_splash_julia_q.png",
+            "top_poster_3": "shopify://shop_images/extension2_cat03_savannah_harness_walk_julia_q.png",
+            "top_poster_4": "shopify://shop_images/extension2_cat04_cornish_rex_post_climb_julia_q.png",
+            "top_poster_5": "shopify://shop_images/extension_dog04_greyhound_awkward_sit_julia_q.png",
+            "top_poster_6": "shopify://shop_images/extension_cat01_turkish_van_water_splash_julia_q.png",
+            "top_poster_7": "shopify://shop_images/extension2_cat02_himalayan_cabinet_paw_julia_q.png",
+            "top_poster_8": "shopify://shop_images/extension_cat05_american_curl_kneading_julia_q.png",
+            "top_poster_9": "shopify://shop_images/extension2_dog02_newfoundland_back_roll_julia_q.png",
+            "top_poster_10": "shopify://shop_images/extension_dog01_dalmatian_yawn_stretch_julia_q.png",
+            "top_poster_11": "shopify://shop_images/extension_cat04_oriental_shorthair_stalking_dot_julia_q.png",
+            "top_poster_12": "shopify://shop_images/extension_dog03_standard_poodle_water_shake_julia_q.png",
+            "bottom_poster_1": "shopify://shop_images/mood_i_am_art_poster.png",
+            "bottom_poster_2": "shopify://shop_images/julia_q_dog_poster_aaa2846f-0a7d-4495-a7dd-7b01d922535b.png",
+            "bottom_poster_3": "shopify://shop_images/poster_01_squeeze_the_day.png",
+            "bottom_poster_4": "shopify://shop_images/poster_02_spill_the_tea.png",
+            "bottom_poster_5": "shopify://shop_images/poster_01_wake_up_juice_signed.png",
+            "bottom_poster_6": "shopify://shop_images/poster_32_spill_the_tagine.png",
+            "bottom_poster_7": "shopify://shop_images/revised_01_when_life_gives_you_lemons_set_sail_signed.png",
+            "bottom_poster_8": "shopify://shop_images/poster_09_lets_ketchup.png",
+            "bottom_poster_9": "shopify://shop_images/julia_q_dog_poster_2.png",
+            "bottom_poster_10": "shopify://shop_images/poster_33_mint_to_be.png",
+            "bottom_poster_11": "shopify://shop_images/revised_06_berry_in_love_signed.png",
+            "bottom_poster_12": "shopify://shop_images/poster_10_home_slice.png"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": ["ai_gen_block_8b5d985_3ACnL7"],
+      "settings": {}
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "text": "Funky pets art · Digital posters · Sticker packs ·",
+        "color_scheme": "accent"
+      }
+    },
+    "categories": {
+      "type": "category-grid",
+      "blocks": {
+        "cat-posters": {
+          "type": "category",
+          "settings": {
+            "collection": "digital-posters",
+            "title": "Custom Digital Posters",
+            "image": "shopify://shop_images/julia_q_dog_poster.png",
+            "link": "shopify://products/custom-pet-digital-posters-made-from-your-photos"
+          }
+        },
+        "cat-art": {
+          "type": "category",
+          "settings": {
+            "collection": "digital-art",
+            "title": "Custom Digital Art",
+            "image": "shopify://shop_images/funky_bulldog_julia_q.png",
+            "link": "shopify://products/custom-pet-digital-art-choose-your-vibe"
+          }
+        },
+        "cat-stickers": {
+          "type": "category",
+          "settings": {
+            "collection": "sticker-packs",
+            "title": "Sticker Packs",
+            "image": "shopify://shop_images/punk_cat_whatsapp_sticker_poster_julia_q.png",
+            "link": "shopify://products/custom-pet-sticker-pack-for-whatsapp-social-media"
+          }
+        },
+        "category_VJM3dJ": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "title": "Custom Full View Art",
+            "image": "shopify://shop_images/wedding_humans_dog_full_art_julia_q_option_b.png",
+            "link": "shopify://products/custom-full-view-art-your-pet-in-a-complete-scene"
+          }
+        }
+      },
+      "block_order": ["cat-posters", "cat-art", "cat-stickers", "category_VJM3dJ"],
+      "settings": {
+        "eyebrow": "Pick your Art",
+        "heading": "Four ways to get funky",
+        "columns": 2
+      }
+    },
+    "bestsellers": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Fresh from the easel",
+        "heading": "The catalogue",
+        "subheading": "Every piece is drawn by hand from your photos. No two artworks are alike.",
+        "collection": "studio-favourites",
+        "products_to_show": 12,
+        "columns": 2,
+        "show_view_all": false,
+        "background": "band"
+      }
+    },
+    "values": {
+      "type": "values-bar",
+      "blocks": {
+        "val-photos": {
+          "type": "value",
+          "settings": {
+            "icon": "star",
+            "heading": "Drawn from your photos",
+            "text": "Three to five clear photos are all we need to capture their personality."
+          }
+        },
+        "val-revision": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "heading": "One free revision",
+            "text": "We tweak until it's perfect, because your pet deserves nothing less."
+          }
+        },
+        "val-files": {
+          "type": "value",
+          "settings": {
+            "icon": "gift",
+            "heading": "Files for everything",
+            "text": "Print-ready posters, wallpapers and WhatsApp-ready stickers."
+          }
+        },
+        "val-pets": {
+          "type": "value",
+          "settings": {
+            "icon": "paw",
+            "heading": "Not just pets",
+            "text": "People, couples, cars, even houseplants. If you love it, we'll funk it."
+          }
+        }
+      },
+      "block_order": ["val-photos", "val-revision", "val-files", "val-pets"],
+      "settings": {
+        "background": "band"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Join the studio",
+        "heading": "Get 10% off your first commission",
+        "text": "New art styles, sticker drops and very good pet art. No spam, paw promise.",
+        "button_label": "Subscribe"
+      }
+    }
+  },
+  "order": ["178388649868ccb164", "1783779721ad5d33c6", "marquee", "categories", "bestsellers", "values", "newsletter"]
+}

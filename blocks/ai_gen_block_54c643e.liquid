@@ -1,0 +1,328 @@
+{% doc %}
+  @prompt
+    can u add a small banner for social media links , i prefer to have icons of instagram , tiktok , threads , X , pinterest , ko-fi , fix the treads icon , and keep same original icons colors
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-social-banner-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding }}px 20px;
+    text-align: center;
+  }
+
+  .ai-social-banner__container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: {{ block.settings.spacing }}px;
+    flex-wrap: wrap;
+  }
+
+  .ai-social-banner__text-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+    margin: 0;
+  }
+
+  .ai-social-banner__links-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.icon_spacing }}px;
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}:hover {
+    transform: translateY(-2px);
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}--instagram:hover svg {
+    filter: brightness(1.1);
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}--tiktok:hover svg {
+    filter: brightness(1.1);
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}--threads:hover svg {
+    filter: brightness(1.1);
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}--x:hover svg {
+    filter: brightness(0.8);
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}--pinterest:hover svg {
+    filter: brightness(1.1);
+  }
+
+  .ai-social-banner__link-{{ ai_gen_id }}--kofi:hover svg {
+    filter: brightness(1.1);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-social-banner__container-{{ ai_gen_id }} {
+      gap: {{ block.settings.spacing | times: 0.7 }}px;
+    }
+
+    .ai-social-banner__text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+
+    .ai-social-banner__link-{{ ai_gen_id }} {
+      width: {{ block.settings.icon_size | times: 0.85 }}px;
+      height: {{ block.settings.icon_size | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-social-banner-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-social-banner__container-{{ ai_gen_id }}">
+    {% if block.settings.banner_text != blank %}
+      <p class="ai-social-banner__text-{{ ai_gen_id }}">{{ block.settings.banner_text }}</p>
+    {% endif %}
+
+    <div class="ai-social-banner__links-{{ ai_gen_id }}">
+      {% if block.settings.instagram_url != blank %}
+        <a
+          href="{{ block.settings.instagram_url }}"
+          class="ai-social-banner__link-{{ ai_gen_id }} ai-social-banner__link-{{ ai_gen_id }}--instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Instagram"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="url(#instagram-gradient-{{ ai_gen_id }})">
+            <defs>
+              <radialGradient id="instagram-gradient-{{ ai_gen_id }}" cx="30%" cy="107%" r="150%">
+                <stop offset="0%" style="stop-color:#fdf497;stop-opacity:1" />
+                <stop offset="5%" style="stop-color:#fdf497;stop-opacity:1" />
+                <stop offset="45%" style="stop-color:#fd5949;stop-opacity:1" />
+                <stop offset="60%" style="stop-color:#d6249f;stop-opacity:1" />
+                <stop offset="90%" style="stop-color:#285AEB;stop-opacity:1" />
+              </radialGradient>
+            </defs>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if block.settings.tiktok_url != blank %}
+        <a
+          href="{{ block.settings.tiktok_url }}"
+          class="ai-social-banner__link-{{ ai_gen_id }} ai-social-banner__link-{{ ai_gen_id }}--tiktok"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on TikTok"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="#000000"/>
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="#EE1D52"/>
+            <path d="M9.68 9.35a6.33 6.33 0 0 0-4.68 10.75 6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1 4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.73 2.88z" fill="#69C9D0"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if block.settings.threads_url != blank %}
+        <a
+          href="{{ block.settings.threads_url }}"
+          class="ai-social-banner__link-{{ ai_gen_id }} ai-social-banner__link-{{ ai_gen_id }}--threads"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Threads"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142l-.126 1.974a11.89 11.89 0 0 0-2.64-.124c-1.065.063-1.868.38-2.458.97-.537.537-.807 1.22-.783 2.033.017.632.35 1.176.936 1.574.52.354 1.17.518 1.93.488 1.068-.057 1.924-.462 2.543-1.205.619-.743.95-1.79 1.004-3.169l.003-.057c.003-.057.006-.114.006-.171 0-.712-.272-1.31-.81-1.782-.537-.471-1.315-.707-2.31-.707-.956 0-1.815.18-2.53.535a4.064 4.064 0 0 0-1.663 1.498c-.38.66-.57 1.414-.57 2.24 0 .829.19 1.584.57 2.246.38.66.93 1.18 1.663 1.498.715.355 1.574.535 2.53.535 1.203 0 2.267-.27 3.164-.803.897-.533 1.6-1.29 2.09-2.246.49-.956.735-2.054.735-3.27 0-1.217-.245-2.315-.735-3.271-.49-.956-1.193-1.713-2.09-2.246-.897-.533-1.961-.803-3.164-.803-1.203 0-2.267.27-3.164.803-.897.533-1.6 1.29-2.09 2.246-.49.956-.735 2.054-.735 3.27v.017c0 .829.19 1.584.57 2.246.38.66.93 1.18 1.663 1.498.715.355 1.574.535 2.53.535h.007c.956 0 1.815-.18 2.53-.535a4.064 4.064 0 0 0 1.663-1.498c.38-.66.57-1.414.57-2.24v-.017c0-.829-.19-1.584-.57-2.246a4.064 4.064 0 0 0-1.663-1.498c-.715-.355-1.574-.535-2.53-.535h-.007c-.956 0-1.815.18-2.53.535a4.064 4.064 0 0 0-1.663 1.498c-.38.66-.57 1.414-.57 2.24v.017c0 .829.19 1.584.57 2.246.38.66.93 1.18 1.663 1.498.715.355 1.574.535 2.53.535" fill="#000000"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if block.settings.x_url != blank %}
+        <a
+          href="{{ block.settings.x_url }}"
+          class="ai-social-banner__link-{{ ai_gen_id }} ai-social-banner__link-{{ ai_gen_id }}--x"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on X"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if block.settings.pinterest_url != blank %}
+        <a
+          href="{{ block.settings.pinterest_url }}"
+          class="ai-social-banner__link-{{ ai_gen_id }} ai-social-banner__link-{{ ai_gen_id }}--pinterest"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Pinterest"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#E60023">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 0 1 .069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+        </a>
+      {% endif %}
+
+      {% if block.settings.kofi_url != blank %}
+        <a
+          href="{{ block.settings.kofi_url }}"
+          class="ai-social-banner__link-{{ ai_gen_id }} ai-social-banner__link-{{ ai_gen_id }}--kofi"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Support us on Ko-fi"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF5E5B">
+            <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 2.424 2.586 2.672 2.586 2.672s8.267-.023 11.966-.049c2.438-.426 2.683-2.566 2.658-3.734 4.352.24 7.422-2.831 6.649-6.916zm-11.062 3.511c-1.246 1.453-4.011 3.976-4.011 3.976s-.121.119-.31.023c-.076-.057-.108-.09-.108-.09-.443-.441-3.368-3.049-4.034-3.954-.709-.965-1.041-2.7-.091-3.71.951-1.01 3.005-1.086 4.363.407 0 0 1.565-1.782 3.468-.963 1.904.82 1.832 3.011.723 4.311zm6.173.478c-.928.116-1.682.028-1.682.028V7.284h1.77s1.971.551 1.971 2.638c0 1.913-.985 2.667-2.059 3.015z"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Social media banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "Banner text",
+      "default": "Follow us"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "threads_url",
+      "label": "Threads URL"
+    },
+    {
+      "type": "url",
+      "id": "x_url",
+      "label": "X URL"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "url",
+      "id": "kofi_url",
+      "label": "Ko-fi URL"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FBE7E1"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#3D3350"
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Spacing between text and icons",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "icon_spacing",
+      "label": "Spacing between icons",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social media banner"
+    }
+  ]
+}
+{% endschema %}
