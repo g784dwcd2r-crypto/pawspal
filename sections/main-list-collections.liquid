@@ -6,6 +6,7 @@
   {%- paginate collections by 24 -%}
     <div class="category-grid" style="--cols: 4; padding-bottom: 4rem;">
       {%- for collection in collections -%}
+        {%- if collection.all_products_count == 0 -%}{%- continue -%}{%- endif -%}
         <a href="{{ collection.url }}" class="category-card">
           <div class="category-card__media">
             {%- assign image = collection.featured_image -%}
