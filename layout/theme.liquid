@@ -6,16 +6,9 @@
   <meta name="theme-color" content="{{ settings.color_background }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-  <link rel="preload" href="{{ settings.type_heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ settings.type_body_font | font_url }}" as="font" type="font/woff2" crossorigin>
-  {%- if request.page_type == 'search' -%}
-    <meta name="robots" content="noindex, follow">
-  {%- endif -%}
 
   {%- if settings.favicon != blank -%}
     <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
-  {%- else -%}
-    <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
   {%- endif -%}
 
   <title>
@@ -30,12 +23,11 @@
   {% endif %}
 
   {% render 'meta-tags' %}
-  {% render 'structured-data' %}
 
+  {%- assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold' -%}
   {% style %}
     {{ settings.type_body_font | font_face: font_display: 'swap' }}
     {{ settings.type_heading_font | font_face: font_display: 'swap' }}
-    {%- assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold' -%}
     {%- if body_font_bold -%}{{ body_font_bold | font_face: font_display: 'swap' }}{%- endif -%}
   {% endstyle %}
 
@@ -66,6 +58,7 @@
   {% endstyle %}
 
   {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'funky.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
 
   <script>
@@ -88,13 +81,14 @@
 <body class="template-{{ request.page_type | handle }}" data-cart-type="{{ settings.cart_type }}">
   <a class="skip-to-content visually-hidden" href="#MainContent">Skip to content</a>
 
-  {% sections 'header-group' %}
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
 
   <main id="MainContent" role="main">
     {{ content_for_layout }}
   </main>
 
-  {% sections 'footer-group' %}
+  {% section 'footer' %}
   {% section 'cart-drawer' %}
 
   <div class="page-overlay" id="PageOverlay" hidden></div>

@@ -1,0 +1,254 @@
+/* ============================================================
+   PawsPal · Funky Studio layer
+   Loaded after base.css — hand-painted poster vibe:
+   ink outlines, offset sticker shadows, paper grain, doodles.
+   Palette: pastel pink / green / blue / yellow / purple.
+   ============================================================ */
+
+:root {
+  --ink: #3D3350;
+  --paper: #FFF9EC;
+  --funky-yellow: #F7D97C;
+  --funky-mint: #A8D8B0;
+  --funky-sky: #A9D7EA;
+  --funky-lilac: #C5B4E3;
+  --funky-pink: #F5B8C9;
+  --funky-hero: #B3A2D8;
+  --funky-purple-deep: #6F5BA7;
+}
+
+/* ---------- Paper grain over the cream background ---------- */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, .hero__heading { letter-spacing: -.01em; }
+
+/* ---------- Buttons: chunky sticker style ---------- */
+.btn {
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-weight: 800;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.btn--accent { color: var(--ink); }
+.btn--accent:hover { background: var(--funky-yellow); color: var(--ink); }
+.btn--outline { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+.btn--outline:hover { background: var(--funky-yellow); color: var(--ink); }
+.btn--light { color: var(--ink); }
+
+/* ---------- Eyebrow: tilted sticker pill ---------- */
+.eyebrow {
+  background: var(--funky-yellow);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: .55rem 1.5rem;
+  display: inline-block;
+  transform: rotate(-2deg);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-weight: 800;
+}
+
+/* ---------- Section headings: painted squiggle underline ---------- */
+.section-header h2::after {
+  content: "";
+  display: block;
+  width: 10rem;
+  height: 1.1rem;
+  margin: 1.3rem auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12'%3E%3Cpath d='M2 8 Q 10 2, 18 8 T 34 8 T 50 8 T 66 8 T 82 8 T 98 8' fill='none' stroke='%23A8D8B0' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.section-header--left h2::after { margin-left: 0; }
+
+/* ---------- Hero: the poster, framed like the artwork ---------- */
+.hero--placeholder {
+  background-color: var(--funky-hero);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0 L14.6 9.4 L24 12 L14.6 14.6 L12 24 L9.4 14.6 L0 12 L9.4 9.4 Z' fill='%23F7D97C'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 C 17 3 21 7 21 12 C 21 16 18 19 14 19 C 11 19 9 17 9 14 C 9 11.5 11 10 13 10 C 14.5 10 15.5 11 15.5 12.5' fill='none' stroke='%23A8D8B0' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='5.5' r='3.4' fill='%23FFF3D6'/%3E%3Ccircle cx='18.5' cy='10.5' r='3.4' fill='%23FFF3D6'/%3E%3Ccircle cx='16' cy='18' r='3.4' fill='%23FFF3D6'/%3E%3Ccircle cx='8' cy='18' r='3.4' fill='%23FFF3D6'/%3E%3Ccircle cx='5.5' cy='10.5' r='3.4' fill='%23FFF3D6'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%23F7D97C'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 14'%3E%3Ccircle cx='5' cy='7' r='2.6' fill='%23A9D7EA'/%3E%3Ccircle cx='15' cy='4' r='2' fill='%23A9D7EA'/%3E%3Ccircle cx='24' cy='9' r='2.3' fill='%23A9D7EA'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 L13.8 8.2 L20 10 L13.8 11.8 L12 18 L10.2 11.8 L4 10 L10.2 8.2 Z' fill='%23F5B8C9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 12% 22%, 88% 16%, 92% 68%, 8% 74%, 78% 86%;
+  background-size: 3.4rem, 4.6rem, 4.2rem, 5rem, 2.6rem;
+  border: 1.2rem solid var(--paper);
+  box-shadow: inset 0 0 0 2px rgba(61, 51, 80, .18);
+}
+.hero--placeholder .hero__content { color: var(--ink); }
+.hero--placeholder .hero__content .eyebrow { background: var(--funky-yellow); }
+.hero--placeholder .hero__heading {
+  color: var(--ink);
+  text-shadow: 3px 3px 0 rgba(255, 249, 236, .65);
+}
+.hero--placeholder .btn--outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.hero--placeholder .btn--outline:hover { background: var(--paper); color: var(--ink); }
+
+/* ---------- Announcement bar & header ---------- */
+.announcement-bar { border-bottom: 2px solid var(--ink); font-weight: 700; }
+.site-header { border-bottom: 2px solid var(--ink); }
+
+/* ---------- Marquee: painted tape strip ---------- */
+.marquee { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.marquee--accent { background: var(--color-accent); color: var(--ink); }
+.marquee__item { font-weight: 800; }
+
+/* ---------- Cards: ink outline + offset shadow, gentle tilt ---------- */
+.product-card__media,
+.category-card,
+.testimonial,
+.newsletter__box,
+.image-with-text__media,
+.insta-grid__item {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.product-grid .product-card:nth-child(odd) .product-card__media { transform: rotate(-.8deg); }
+.product-grid .product-card:nth-child(even) .product-card__media { transform: rotate(.8deg); }
+.product-card .product-card__media { transition: transform .2s ease, box-shadow .2s ease; }
+.product-card:hover .product-card__media { transform: rotate(0deg) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+
+.category-card:hover { transform: translate(-3px, -3px) rotate(-.6deg); box-shadow: 7px 7px 0 var(--ink); }
+.category-card__title svg { color: var(--color-primary); }
+
+.testimonial:nth-child(odd) { transform: rotate(-.7deg); }
+.testimonial:nth-child(even) { transform: rotate(.7deg); }
+
+/* Alternate pastel tints on the insta grid tiles while they load */
+.insta-grid__item:nth-child(5n+1) { background: var(--funky-pink); }
+.insta-grid__item:nth-child(5n+2) { background: var(--funky-mint); }
+.insta-grid__item:nth-child(5n+3) { background: var(--funky-sky); }
+.insta-grid__item:nth-child(5n+4) { background: var(--funky-yellow); }
+.insta-grid__item:nth-child(5n+5) { background: var(--funky-lilac); }
+
+/* ---------- Badges: little stickers ---------- */
+.badge {
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-weight: 800;
+  transform: rotate(-3deg);
+}
+.badge--new { background: var(--color-highlight); color: var(--ink); }
+.badge--sale { color: #FFF9EC; }
+
+/* ---------- Values bar: doodle cards ---------- */
+.values-bar__item {
+  background: var(--color-surface);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 2.6rem 1.8rem 2.2rem;
+}
+.values-bar__item:nth-child(odd) { transform: rotate(-.6deg); }
+.values-bar__item:nth-child(even) { transform: rotate(.6deg); }
+.values-bar__item svg { color: #9C89CC; }
+.values-bar__item:nth-child(2) svg { color: #E2708A; }
+.values-bar__item:nth-child(3) svg { color: #6FB57E; }
+.values-bar__item:nth-child(4) svg { color: #6FAECB; }
+
+/* ---------- Forms ---------- */
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="search"], textarea, select {
+  border: 2px solid var(--ink);
+  background: var(--color-surface);
+}
+input:focus, textarea:focus, select:focus { outline-color: var(--color-primary); }
+
+/* ---------- Product page ---------- */
+.product-gallery__main { border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+.product-gallery__thumb { border: 2px solid var(--ink); }
+.product-gallery__thumb.is-active { border-color: var(--color-primary); box-shadow: 2px 2px 0 var(--ink); }
+.option-pill label { border: 2px solid var(--ink); background: var(--color-surface); }
+.option-pill input:checked + label {
+  background: var(--funky-yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.quantity { border: 2px solid var(--ink); }
+.product-info__giveback { border: 2px dashed var(--ink); background: var(--color-accent-soft); }
+.product-accordions summary { font-weight: 800; }
+
+/* ---------- FAQ ---------- */
+.faq details { border: 2px solid var(--ink); border-radius: var(--radius-small); box-shadow: 3px 3px 0 var(--ink); margin-bottom: 1.4rem; background: var(--color-surface); }
+
+/* ---------- Pagination ---------- */
+.pagination .pagination__current { border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+
+/* ---------- Footer ---------- */
+.site-footer, footer { border-top: 2px solid var(--ink); }
+
+/* ---------- Cart drawer ---------- */
+.cart-line__media { border: 2px solid var(--ink); }
+
+/* ============================================================
+   Pastel purple pass — the primary is now a light pastel
+   (#B3A2D8), so every surface that used white-on-primary
+   switches to ink text for readability.
+   ============================================================ */
+
+a { color: var(--funky-purple-deep); }
+
+.btn--primary, .btn--primary:hover { color: var(--ink); }
+
+.announcement-bar { color: var(--ink); }
+
+.marquee { color: var(--ink); }
+
+.pagination .pagination__current { color: var(--ink); }
+
+.cart-count { color: var(--ink); }
+
+.site-footer { color: rgba(61, 51, 80, .85); }
+.site-footer a { color: var(--ink); }
+.site-footer a:hover { color: var(--funky-purple-deep); }
+.site-footer__brand h3, .site-footer h4 { color: var(--ink); }
+.site-footer__brand p, .footer-newsletter p { color: rgba(61, 51, 80, .75); }
+.footer-newsletter input {
+  background: rgba(255, 253, 246, .75);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.footer-newsletter input::placeholder { color: rgba(61, 51, 80, .55); }
+.site-footer__bottom { color: rgba(61, 51, 80, .7); border-top-color: rgba(61, 51, 80, .25); }
+.site-footer__social a:hover { color: var(--funky-purple-deep); }
+
+/* ============================================================
+   No more cropped artwork — posters are tall (3:4), so frames
+   show the WHOLE image on a pastel wall instead of cropping.
+   ============================================================ */
+
+.category-card__media { aspect-ratio: 4 / 5; padding: 1.4rem; }
+.category-card__media img { object-fit: contain; border-radius: calc(var(--radius) - 10px); }
+.category-grid .category-card:nth-child(3n+1) .category-card__media { background: var(--funky-pink); }
+.category-grid .category-card:nth-child(3n+2) .category-card__media { background: var(--funky-mint); }
+.category-grid .category-card:nth-child(3n+3) .category-card__media { background: var(--funky-sky); }
+
+.product-card__media img { object-fit: contain; }
+.product-gallery__main img { object-fit: contain; background: var(--color-surface); }
+
+.insta-grid__item img { object-fit: contain; padding: .8rem; }
+
+/* ---------- Calm it down for motion-sensitive folks ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .btn:active,
+  .product-card:hover .product-card__media,
+  .category-card:hover { transform: none; }
+}
+
+/* ============================================================
+   Mobile & icon-size fixes (v4)
+   SVG icons with no CSS size default to full width — pin the
+   three spots that had no rule, and polish the drawer footer.
+   ============================================================ */
+.mobile-drawer__foot a svg { width: 2rem; height: 2rem; flex-shrink: 0; }
+.mobile-drawer__foot { display: flex; gap: 2.4rem; }
+.mobile-drawer__foot a { display: inline-flex; align-items: center; gap: .8rem; font-size: 1.5rem; }
+.link-arrow svg { width: 1.5rem; height: 1.5rem; flex-shrink: 0; }
+.collection-empty svg { width: 6rem; height: 6rem; margin: 0 auto 2rem; color: var(--color-accent); }

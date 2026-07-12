@@ -2,20 +2,13 @@
 
 <section class="section{% if section.settings.background == 'band' %} section--band{% endif %}">
   <div class="page-width">
-    <div class="section-row" data-reveal>
-      <div>
-        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-        <h2>{{ section.settings.heading }}</h2>
-        {%- if section.settings.subheading != blank -%}
-          <p style="color: var(--color-text-muted); margin: 1rem 0 0;">{{ section.settings.subheading }}</p>
-        {%- endif -%}
-      </div>
-      {%- if section.settings.show_view_all and collection != blank -%}
-        <a href="{{ collection.url }}" class="link-arrow section-row__link">Shop all {% render 'icon', name: 'arrow-right' %}</a>
-      {%- endif -%}
+    <div class="section-header">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p>{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
 
-    <div class="product-grid product-grid--carousel" data-reveal style="--reveal-delay: 100ms; --cols: {{ section.settings.columns }};">
+    <div class="product-grid product-grid--carousel" style="--cols: {{ section.settings.columns }};">
       {%- if collection != blank and collection.products.size > 0 -%}
         {%- for product in collection.products limit: section.settings.products_to_show -%}
           {% render 'product-card', product: product %}
@@ -26,6 +19,12 @@
         {%- endfor -%}
       {%- endif -%}
     </div>
+
+    {%- if section.settings.show_view_all and collection != blank -%}
+      <div class="text-center" style="margin-top: 3.6rem;">
+        <a href="{{ collection.url }}" class="btn btn--outline">Shop all {{ collection.title | downcase }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -47,7 +46,8 @@
     {
       "type": "text",
       "id": "subheading",
-      "label": "Subheading"
+      "label": "Subheading",
+      "default": "The goods your fellow dog people can't stop buying."
     },
     {
       "type": "collection",
@@ -75,7 +75,7 @@
     {
       "type": "checkbox",
       "id": "show_view_all",
-      "label": "Show \"shop all\" link",
+      "label": "Show \"view all\" button",
       "default": true
     },
     {

@@ -17,6 +17,12 @@
                 {%- unless item.product.has_only_default_variant -%}
                   <p class="cart-line__variant">{{ item.variant.title }}</p>
                 {%- endunless -%}
+                {%- for property in item.properties -%}
+                  {%- assign pfirst = property.first | slice: 0 -%}
+                  {%- if property.last != blank and pfirst != '_' -%}
+                    <p class="cart-line__variant">{{ property.first }}: {{ property.last | truncate: 90 }}</p>
+                  {%- endif -%}
+                {%- endfor -%}
                 {%- for discount in item.line_level_discount_allocations -%}
                   <p class="cart-line__variant">{{ discount.discount_application.title }}</p>
                 {%- endfor -%}
@@ -48,7 +54,7 @@
           {%- if settings.free_shipping_threshold > 0 -%}
             {%- if cart.total_price >= threshold -%}
               <div class="shipping-bar shipping-bar--done">
-                <p class="shipping-bar__label">🎉 You've unlocked free shipping!</p>
+                <p class="shipping-bar__label">You've unlocked free shipping!</p>
                 <div class="shipping-bar__track"><div class="shipping-bar__fill" style="width: 100%;"></div></div>
               </div>
             {%- else -%}

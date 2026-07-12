@@ -7,22 +7,17 @@
 
     <div class="testimonials">
       {%- for block in section.blocks -%}
-        <div class="testimonial" data-reveal style="--reveal-delay: {{ forloop.index0 | times: 90 }}ms;" {{ block.shopify_attributes }}>
+        <div class="testimonial" {{ block.shopify_attributes }}>
           <div class="testimonial__stars" aria-label="{{ block.settings.stars }} out of 5 stars">
             {%- for i in (1..block.settings.stars) -%}
               {% render 'icon', name: 'star' %}
             {%- endfor -%}
           </div>
           <p class="testimonial__quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
-          <div class="testimonial__byline">
-            <span class="testimonial__avatar" aria-hidden="true">{{ block.settings.author | slice: 0 }}</span>
-            <div>
-              <p class="testimonial__author">{{ block.settings.author }}</p>
-              {%- if block.settings.detail != blank -%}
-                <p class="testimonial__detail">{{ block.settings.detail }}</p>
-              {%- endif -%}
-            </div>
-          </div>
+          <p class="testimonial__author">{{ block.settings.author }}</p>
+          {%- if block.settings.detail != blank -%}
+            <p class="testimonial__detail">{{ block.settings.detail }}</p>
+          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>

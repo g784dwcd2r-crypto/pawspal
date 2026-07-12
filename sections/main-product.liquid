@@ -1,7 +1,6 @@
 {%- assign current_variant = product.selected_or_first_available_variant -%}
 
 <div class="page-width">
-  {% render 'breadcrumbs' %}
   <div class="product-page">
 
     <div class="product-gallery">
@@ -80,6 +79,41 @@
           </div>
         </div>
 
+        {%- liquid
+          assign show_commission = false
+          if section.settings.enable_commission
+            assign tag_setting = section.settings.commission_tags | default: ''
+            assign tag_list = tag_setting | downcase | split: ','
+            if tag_list.size == 0
+              assign show_commission = true
+            else
+              assign ptags = product.tags | join: ',' | downcase | split: ','
+              for t in tag_list
+                assign tt = t | strip
+                if ptags contains tt
+                  assign show_commission = true
+                endif
+              endfor
+            endif
+          endif
+        -%}
+        {%- if show_commission -%}
+          <div class="commission-fields" style="margin: 2rem 0 .4rem;">
+            {%- if section.settings.name_label != blank -%}
+              <div class="field">
+                <label for="CommissionName-{{ section.id }}">{{ section.settings.name_label }} <span style="font-weight: 400; opacity: .65;">(optional)</span></label>
+                <input type="text" id="CommissionName-{{ section.id }}" name="properties[Pet's name]" maxlength="60" autocomplete="off">
+              </div>
+            {%- endif -%}
+            {%- if section.settings.notes_label != blank -%}
+              <div class="field" style="margin-bottom: .6rem;">
+                <label for="CommissionNotes-{{ section.id }}">{{ section.settings.notes_label }} <span style="font-weight: 400; opacity: .65;">(optional)</span></label>
+                <textarea id="CommissionNotes-{{ section.id }}" name="properties[Commission notes]" rows="4" maxlength="1200" placeholder="{{ section.settings.notes_placeholder | escape }}"></textarea>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
         <div class="product-form__buttons">
           <button
             type="submit"
@@ -101,20 +135,6 @@
         <div class="product-info__giveback">
           {% render 'icon', name: 'heart' %}
           <span>{{ section.settings.giveback_text }}</span>
-        </div>
-      {%- endif -%}
-
-      {%- if section.settings.trust_1 != blank or section.settings.trust_2 != blank or section.settings.trust_3 != blank -%}
-        <div class="product-trust">
-          {%- if section.settings.trust_1 != blank -%}
-            <span>{% render 'icon', name: 'heart' %} {{ section.settings.trust_1 }}</span>
-          {%- endif -%}
-          {%- if section.settings.trust_2 != blank -%}
-            <span>{% render 'icon', name: 'wash' %} {{ section.settings.trust_2 }}</span>
-          {%- endif -%}
-          {%- if section.settings.trust_3 != blank -%}
-            <span>{% render 'icon', name: 'truck' %} {{ section.settings.trust_3 }}</span>
-          {%- endif -%}
         </div>
       {%- endif -%}
 
@@ -171,25 +191,43 @@
       "type": "text",
       "id": "giveback_text",
       "label": "Give-back message",
-      "default": "Printed to order for your very good pet 🐾"
+      "default": "This purchase donates a meal to a shelter dog."
+    },
+    {
+      "type": "header",
+      "content": "Commission fields"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_commission",
+      "label": "Show commission fields",
+      "info": "Adds a name field and a notes box; answers are attached to the order line.",
+      "default": true
     },
     {
       "type": "text",
-      "id": "trust_1",
-      "label": "Trust chip 1 (heart icon)",
-      "default": "Made to order"
+      "id": "commission_tags",
+      "label": "Show only for products tagged",
+      "info": "Comma-separated tags. Leave blank to show on every product.",
+      "default": "custom, personalised, commission, fullview"
     },
     {
       "type": "text",
-      "id": "trust_2",
-      "label": "Trust chip 2 (wash icon)",
-      "default": "Machine washable"
+      "id": "name_label",
+      "label": "Name field label",
+      "default": "Your pet's name"
     },
     {
       "type": "text",
-      "id": "trust_3",
-      "label": "Trust chip 3 (truck icon)",
-      "default": "Free UK shipping £50+"
+      "id": "notes_label",
+      "label": "Notes field label",
+      "default": "Commission notes (tell us exactly what you want)"
+    },
+    {
+      "type": "textarea",
+      "id": "notes_placeholder",
+      "label": "Notes placeholder",
+      "default": "Breed, markings, personality, the pose or view you'd like, background ideas, colours to use or avoid…"
     }
   ],
   "blocks": [

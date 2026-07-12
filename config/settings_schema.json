@@ -1,8 +1,8 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Good Dog",
-    "theme_version": "1.1.0",
+    "theme_name": "PawsPal Funky Studio",
+    "theme_version": "2.0.0",
     "theme_author": "Cleaningclockin",
     "theme_documentation_url": "https://github.com/g784dwcd2r-crypto/Cleaningclockin",
     "theme_support_url": "https://github.com/g784dwcd2r-crypto/Cleaningclockin"
@@ -14,7 +14,7 @@
         "type": "color",
         "id": "color_background",
         "label": "Page background",
-        "default": "#FCF6EA"
+        "default": "#FFF9F4"
       },
       {
         "type": "color",
@@ -25,38 +25,38 @@
       {
         "type": "color",
         "id": "color_text",
-        "label": "Text (ink)",
-        "default": "#2B2118"
+        "label": "Text",
+        "default": "#22304A"
       },
       {
         "type": "color",
         "id": "color_primary",
         "label": "Primary (buttons & links)",
-        "default": "#2B2118"
+        "default": "#22304A"
       },
       {
         "type": "color",
         "id": "color_accent",
-        "label": "Accent (coral)",
-        "default": "#E4573D"
+        "label": "Accent (blush)",
+        "default": "#EE9B8F"
       },
       {
         "type": "color",
         "id": "color_accent_soft",
         "label": "Accent soft (tints & bands)",
-        "default": "#FAE3D3"
+        "default": "#FBE7E1"
       },
       {
         "type": "color",
         "id": "color_highlight",
-        "label": "Highlight (mustard)",
-        "default": "#E9A820"
+        "label": "Highlight (sage)",
+        "default": "#9DB89C"
       },
       {
         "type": "color",
         "id": "color_sale",
         "label": "Sale badge",
-        "default": "#E4573D"
+        "default": "#D96C57"
       }
     ]
   },
@@ -67,14 +67,14 @@
         "type": "font_picker",
         "id": "type_heading_font",
         "label": "Heading font",
-        "default": "fraunces_n5",
-        "info": "A warm, characterful serif gives the artist-studio feel."
+        "default": "playfair_display_n4",
+        "info": "A serif gives the premium, editorial feel."
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
         "label": "Body font",
-        "default": "karla_n4"
+        "default": "assistant_n4"
       }
     ]
   },
@@ -99,7 +99,7 @@
         "step": 2,
         "unit": "px",
         "label": "Corner radius (cards & images)",
-        "default": 6
+        "default": 16
       }
     ]
   },

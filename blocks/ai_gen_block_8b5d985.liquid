@@ -1,0 +1,406 @@
+{% doc %}
+  @prompt
+    i need a gallery of sliding posters i have , like two rows one and they keep moving the rop row from right to left and the second from left to right  . 6 posters per view top and 6 buttom
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-poster-gallery-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-poster-gallery__row-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.gap }}px;
+    margin-bottom: {{ block.settings.row_gap }}px;
+    will-change: transform;
+  }
+
+  .ai-poster-gallery__row-{{ ai_gen_id }}:last-child {
+    margin-bottom: 0;
+  }
+
+  .ai-poster-gallery__row-{{ ai_gen_id }}--top {
+    animation: ai-slide-right-to-left-{{ ai_gen_id }} {{ block.settings.animation_speed }}s linear infinite;
+  }
+
+  .ai-poster-gallery__row-{{ ai_gen_id }}--bottom {
+    animation: ai-slide-left-to-right-{{ ai_gen_id }} {{ block.settings.animation_speed }}s linear infinite;
+  }
+
+  .ai-poster-gallery__row-{{ ai_gen_id }}:hover {
+    animation-play-state: paused;
+  }
+
+  .ai-poster-gallery__poster-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: {{ block.settings.poster_width }}px;
+    height: {{ block.settings.poster_height }}px;
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+    box-shadow: {{ block.settings.shadow_intensity }}px {{ block.settings.shadow_intensity }}px {{ block.settings.shadow_intensity | times: 2 }}px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-poster-gallery__poster-{{ ai_gen_id }}:hover {
+    transform: scale(1.05);
+    box-shadow: {{ block.settings.shadow_intensity | times: 2 }}px {{ block.settings.shadow_intensity | times: 2 }}px {{ block.settings.shadow_intensity | times: 4 }}px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-poster-gallery__poster-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ai-poster-gallery__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-poster-gallery__placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  @keyframes ai-slide-right-to-left-{{ ai_gen_id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-{{ block.settings.poster_width }}px * 6 - {{ block.settings.gap }}px * 6));
+    }
+  }
+
+  @keyframes ai-slide-left-to-right-{{ ai_gen_id }} {
+    0% {
+      transform: translateX(calc(-{{ block.settings.poster_width }}px * 6 - {{ block.settings.gap }}px * 6));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-poster-gallery__poster-{{ ai_gen_id }} {
+      width: {{ block.settings.poster_width | times: 0.7 }}px;
+      height: {{ block.settings.poster_height | times: 0.7 }}px;
+    }
+
+    @keyframes ai-slide-right-to-left-{{ ai_gen_id }} {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-{{ block.settings.poster_width | times: 0.7 }}px * 6 - {{ block.settings.gap }}px * 6));
+      }
+    }
+
+    @keyframes ai-slide-left-to-right-{{ ai_gen_id }} {
+      0% {
+        transform: translateX(calc(-{{ block.settings.poster_width | times: 0.7 }}px * 6 - {{ block.settings.gap }}px * 6));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+{% endstyle %}
+
+<div class="ai-poster-gallery-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-poster-gallery__row-{{ ai_gen_id }} ai-poster-gallery__row-{{ ai_gen_id }}--top">
+    {% for i in (1..12) %}
+      {% liquid
+        assign poster_key = 'top_poster_' | append: i
+        assign poster = block.settings[poster_key]
+      %}
+      <div class="ai-poster-gallery__poster-{{ ai_gen_id }}">
+        {% if poster %}
+          <img
+            src="{{ poster | image_url: width: 800 }}"
+            alt="{{ poster.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.poster_width }}"
+            height="{{ block.settings.poster_height }}"
+          >
+        {% else %}
+          <div class="ai-poster-gallery__placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="ai-poster-gallery__row-{{ ai_gen_id }} ai-poster-gallery__row-{{ ai_gen_id }}--bottom">
+    {% for i in (1..12) %}
+      {% liquid
+        assign poster_key = 'bottom_poster_' | append: i
+        assign poster = block.settings[poster_key]
+      %}
+      <div class="ai-poster-gallery__poster-{{ ai_gen_id }}">
+        {% if poster %}
+          <img
+            src="{{ poster | image_url: width: 800 }}"
+            alt="{{ poster.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.poster_width }}"
+            height="{{ block.settings.poster_height }}"
+          >
+        {% else %}
+          <div class="ai-poster-gallery__placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sliding poster gallery",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "poster_width",
+      "label": "Poster width",
+      "min": 150,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 250
+    },
+    {
+      "type": "range",
+      "id": "poster_height",
+      "label": "Poster height",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between posters",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Gap between rows",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FBF5E7"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "shadow_intensity",
+      "label": "Shadow intensity",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "label": "Animation speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Top row posters"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_1",
+      "label": "Poster 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_2",
+      "label": "Poster 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_3",
+      "label": "Poster 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_4",
+      "label": "Poster 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_5",
+      "label": "Poster 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_6",
+      "label": "Poster 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_7",
+      "label": "Poster 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_8",
+      "label": "Poster 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_9",
+      "label": "Poster 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_10",
+      "label": "Poster 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_11",
+      "label": "Poster 11"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_poster_12",
+      "label": "Poster 12"
+    },
+    {
+      "type": "header",
+      "content": "Bottom row posters"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_1",
+      "label": "Poster 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_2",
+      "label": "Poster 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_3",
+      "label": "Poster 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_4",
+      "label": "Poster 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_5",
+      "label": "Poster 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_6",
+      "label": "Poster 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_7",
+      "label": "Poster 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_8",
+      "label": "Poster 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_9",
+      "label": "Poster 9"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_10",
+      "label": "Poster 10"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_11",
+      "label": "Poster 11"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom_poster_12",
+      "label": "Poster 12"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sliding poster gallery"
+    }
+  ]
+}
+{% endschema %}

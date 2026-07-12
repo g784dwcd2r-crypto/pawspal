@@ -2,8 +2,8 @@
   <div class="page-width">
     <div class="site-footer__grid">
       <div class="site-footer__brand">
-        {% render 'brand-logo', light: true %}
-        <p style="margin-top: 1.6rem;">{{ section.settings.about_text }}</p>
+        <h3>{{ shop.name }}</h3>
+        <p>{{ section.settings.about_text }}</p>
         <div class="site-footer__social">
           {%- if settings.social_instagram_link != blank -%}
             <a href="{{ settings.social_instagram_link }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>
@@ -47,7 +47,7 @@
         {%- form 'customer', class: 'newsletter-form' -%}
           <input type="hidden" name="contact[tags]" value="newsletter">
           {%- if form.posted_successfully? -%}
-            <p class="form-message form-message--success">Thanks for joining the pack! 🐶</p>
+            <p class="form-message form-message--success">Thanks for joining the studio. Check your inbox.</p>
           {%- else -%}
             <input
               type="email"
@@ -55,6 +55,8 @@
               placeholder="Your email address"
               aria-label="Email address"
               autocomplete="email"
+              pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}"
+              title="Please enter a full email address, like name@example.com"
               required>
             <button type="submit" class="btn btn--accent">Subscribe</button>
             {%- if form.errors -%}
@@ -126,7 +128,7 @@
       "type": "text",
       "id": "giveback_text",
       "label": "Give-back line",
-      "default": "Every order donates a meal to a shelter dog. 🐾"
+      "default": "Hand-drawn from your photos. Loved by pets everywhere."
     }
   ]
 }

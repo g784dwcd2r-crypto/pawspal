@@ -8,9 +8,8 @@
       "type": "featured-collection",
       "settings": {
         "eyebrow": "Before you go",
-        "heading": "One more little artwork?",
+        "heading": "Add a little more art",
         "subheading": "",
-        "collection": "studio-favourites",
         "products_to_show": 4,
         "columns": 4,
         "show_view_all": false,

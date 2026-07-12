@@ -7,7 +7,7 @@
       {%- form 'customer', class: 'newsletter-form' -%}
         <input type="hidden" name="contact[tags]" value="newsletter">
         {%- if form.posted_successfully? -%}
-          <p class="form-message form-message--success" style="width: 100%;">Thanks for joining the pack! Check your inbox. 🐶</p>
+          <p class="form-message form-message--success" style="width: 100%;">Thanks for joining the studio. Check your inbox.</p>
         {%- else -%}
           <input
             type="email"
@@ -15,6 +15,8 @@
             placeholder="Your email address"
             aria-label="Email address"
             autocomplete="email"
+            pattern="[^@\s]+@[^@\s]+\.[A-Za-z]{2,}"
+            title="Please enter a full email address, like name@example.com"
             required>
           <button type="submit" class="btn btn--primary">{{ section.settings.button_label }}</button>
         {%- endif -%}
@@ -34,7 +36,7 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Join the pack"
+      "default": "Join the studio"
     },
     {
       "type": "text",
@@ -46,7 +48,7 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "New drops, exclusive offers, and very good dog photos. No spam — we promise, paw to heart."
+      "default": "New drops, exclusive offers and very good pet art. No spam, paw promise."
     },
     {
       "type": "text",

@@ -4,17 +4,20 @@
       "type": "contact-form",
       "settings": {
         "heading": "Get in touch",
-        "text": "Questions about sizing, orders, or wholesale? We (and our office dogs) are happy to help."
+        "text": "Questions about photos, styles or your commission? The studio is happy to help."
       }
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "q-sizing": { "type": "question", "settings": { "question": "How do I find my dog's size?", "answer": "<p>Measure around your dog's neck where the collar naturally sits, then add two fingers of room. Each product page includes a detailed size chart.</p>" } },
-        "q-returns": { "type": "question", "settings": { "question": "What is your return policy?", "answer": "<p>We accept returns and exchanges within 30 days of delivery on unused items. Reach out and we'll make it right.</p>" } },
-        "q-giveback": { "type": "question", "settings": { "question": "How does the donation program work?", "answer": "<p>For every order placed, we donate a meal to a dog waiting for their forever home at one of our partner shelters.</p>" } }
+        "q-ai": { "type": "question", "settings": { "question": "Is the art made with AI?", "answer": "<p>No. Every piece is drawn by a human artist, stroke by stroke, and we never use AI image generation. Want proof? Ask for the work-in-progress sketches of your commission and we'll happily share them.</p>" } },
+        "q-photos": { "type": "question", "settings": { "question": "What photos work best?", "answer": "<p>Three to five clear, well-lit photos taken at your pet's eye level. A front-facing shot plus a couple of personality shots is perfect, and phone photos are absolutely fine.</p>" } },
+        "q-time": { "type": "question", "settings": { "question": "How long does my art take?", "answer": "<p>Your finished files arrive by email within 3 to 5 days of sending your photos. Need it faster for a gift? Get in touch and we'll try to squeeze you in.</p>" } },
+        "q-stickers": { "type": "question", "settings": { "question": "How do I use my stickers on WhatsApp?", "answer": "<p>Every pack comes with a simple step-by-step guide for WhatsApp, Telegram and iMessage. It takes about two minutes to install.</p>" } },
+        "q-revisions": { "type": "question", "settings": { "question": "Can I get changes made?", "answer": "<p>Yes! One free revision round is included with every commission. We want it perfect as much as you do.</p>" } },
+        "q-shipping": { "type": "question", "settings": { "question": "Do you ship anything?", "answer": "<p>Nope. PawsPal is 100% digital, so every product arrives by email with no shipping cost, no customs and no waiting at the door.</p>" } }
       },
-      "block_order": ["q-sizing", "q-returns", "q-giveback"],
+      "block_order": ["q-ai", "q-photos", "q-time", "q-stickers", "q-revisions", "q-shipping"],
       "settings": {
         "heading": "Frequently asked questions"
       }

@@ -5,12 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <title>{{ shop.name }} — Gift card</title>
-  {% style %}
+  <title>{{ shop.name }} gift card</title>
+  <style>
     {{ settings.type_body_font | font_face: font_display: 'swap' }}
     {{ settings.type_heading_font | font_face: font_display: 'swap' }}
-  {% endstyle %}
-  <style>
     body {
       margin: 0;
       background: {{ settings.color_background }};
@@ -65,7 +63,7 @@
 <body>
   <div class="card">
     <h1>{{ shop.name }}</h1>
-    <p>Here's your gift card! 🎁🐾</p>
+    <p>Here's your gift card!</p>
     <p class="amount">{{ gift_card.initial_value | money }}</p>
     {%- if gift_card.enabled == false or gift_card.expired -%}
       <p class="expired">This gift card has expired.</p>

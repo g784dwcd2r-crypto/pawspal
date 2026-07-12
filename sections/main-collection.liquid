@@ -1,9 +1,5 @@
 <div class="page-width">
-  {% render 'breadcrumbs' %}
   <div class="collection-banner">
-    {%- if section.settings.eyebrow != blank -%}
-      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-    {%- endif -%}
     <h1>{{ collection.title }}</h1>
     {%- if collection.description != blank -%}
       <div class="collection-banner__description rte">{{ collection.description }}</div>
@@ -47,7 +43,7 @@
         {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
         <label class="visually-hidden" for="SortBy">Sort by</label>
         <select id="SortBy" data-sort-by>
-          {%- assign sort_options = 'manual,Featured|best-selling,Best selling|title-ascending,A–Z|title-descending,Z–A|price-ascending,Price low to high|price-descending,Price high to low|created-descending,Newest' | split: '|' -%}
+          {%- assign sort_options = 'manual,Featured|best-selling,Best selling|title-ascending,A to Z|title-descending,Z to A|price-ascending,Price low to high|price-descending,Price high to low|created-descending,Newest' | split: '|' -%}
           {%- for option in sort_options -%}
             {%- assign pair = option | split: ',' -%}
             <option value="{{ pair[0] }}" {% if sort_by == pair[0] %}selected{% endif %}>{{ pair[1] }}</option>
@@ -67,7 +63,7 @@
       <div class="collection-empty">
         {% render 'icon', name: 'paw' %}
         <h2>No products found</h2>
-        <p>Try removing a filter, or come back soon — new goodies are always on the way.</p>
+        <p>Try removing a filter, or come back soon. New pieces are always on the way.</p>
         <a href="{{ collection.url }}" class="btn btn--primary">Clear filters</a>
       </div>
     {%- endif -%}
@@ -79,12 +75,6 @@
 {
   "name": "Collection page",
   "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow above title",
-      "default": "From the studio"
-    },
     {
       "type": "range",
       "id": "products_per_page",
