@@ -245,7 +245,15 @@
       }
       if (variant.featured_image && mainImage) {
         mainImage.src = variant.featured_image.src;
+        if (variant.featured_image.srcset) {
+          mainImage.srcset = variant.featured_image.srcset;
+        } else {
+          mainImage.removeAttribute('srcset');
+        }
         if (variant.featured_image.alt) mainImage.alt = variant.featured_image.alt;
+        qsa('.product-gallery__thumb').forEach(function (t) {
+          t.classList.toggle('is-active', t.getAttribute('data-thumb') === variant.featured_image.src);
+        });
       }
       var url = new URL(window.location.href);
       url.searchParams.set('variant', variant.id);
@@ -266,6 +274,12 @@
     var main = qs('[data-main-image]', gallery);
     if (!main) return;
     main.src = thumb.getAttribute('data-thumb');
+    var thumbSrcset = thumb.getAttribute('data-thumb-srcset');
+    if (thumbSrcset) {
+      main.srcset = thumbSrcset;
+    } else {
+      main.removeAttribute('srcset');
+    }
     main.alt = thumb.getAttribute('data-thumb-alt') || '';
     qsa('.product-gallery__thumb', gallery).forEach(function (t) { t.classList.remove('is-active'); });
     thumb.classList.add('is-active');
