@@ -106,6 +106,12 @@
                 <input type="text" id="CommissionName-{{ section.id }}" name="properties[Pet's name]" maxlength="60" autocomplete="off">
               </div>
             {%- endif -%}
+            {%- if section.settings.ig_label != blank -%}
+              <div class="field">
+                <label for="CommissionIG-{{ section.id }}">{{ section.settings.ig_label }} <span style="font-weight: 400; opacity: .65;">(optional)</span></label>
+                <input type="text" id="CommissionIG-{{ section.id }}" name="properties[Instagram]" maxlength="40" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="@yourhandle">
+              </div>
+            {%- endif -%}
             {%- if section.settings.notes_label != blank -%}
               <div class="field" style="margin-bottom: .6rem;">
                 <label for="CommissionNotes-{{ section.id }}">{{ section.settings.notes_label }} <span style="font-weight: 400; opacity: .65;">(optional)</span></label>
@@ -217,6 +223,13 @@
       "id": "name_label",
       "label": "Name field label",
       "default": "Your pet's name"
+    },
+    {
+      "type": "text",
+      "id": "ig_label",
+      "label": "Instagram field label",
+      "info": "Saved on the order line so you can see who placed it. Leave blank to hide the field.",
+      "default": "Your Instagram (so we can tag your pet's portrait)"
     },
     {
       "type": "text",
