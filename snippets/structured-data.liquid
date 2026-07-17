@@ -8,6 +8,7 @@
     "description": "Custom pet portraits hand-illustrated from photos by real artists in the UK."
   }
 </script>
+{%- capture search_url_template -%}{{ request.origin }}{{ routes.search_url }}?q={search_term_string}{%- endcapture -%}
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -20,7 +21,7 @@
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": {{ request.origin | append: routes.search_url | append: '?q={search_term_string}' | json }}
+        "urlTemplate": {{ search_url_template | json }}
       },
       "query-input": "required name=search_term_string"
     }
